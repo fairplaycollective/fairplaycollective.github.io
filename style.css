@@ -1,0 +1,43 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fff9f0;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background: #ffefd5;
+  padding: 1em;
+  text-align: center;
+}
+
+header h1 {
+  font-family: 'Abril Fatface', cursive;
+  margin-bottom: 0.3em;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+main {
+  padding: 2em;
+}
+
+footer {
+  background: #ffe4b5;
+  text-align: center;
+  padding: 1em;
+  font-size: 0.9em;
+}
