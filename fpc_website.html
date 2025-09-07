@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fair Play Collective</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="bg-decoration">
+        <div class="bg-shape">
+		</div>
+        <div class="bg-shape">
+		</div>
+        <div class="bg-shape"></div>
+    </div>
+
+    <header>
+        <nav>
+            <a href="#home" class="logo">Fair Play Collective</a>
+            <ul class="nav-links">
+                <li><a href="#manifesto" onclick="showSection('manifesto')">manifesto</a></li>
+                <li><a href="#faq" onclick="showSection('faq')">faq</a></li>
+                <li><a href="#about" onclick="showSection('about')">about</a></li>
+                <li><a href="#contact" onclick="showSection('contact')">contact</a></li>
+                <li>
+                    <svg class="search-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"/>
+                    </svg>
+                </li>
+                <li>
+                    <svg class="settings-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z"/>
+                        <path d="M21.94,11.34,20.35,9.75l.15-2.23a1,1,0,0,0-.8-1.05L17.46,6l-1.64-1.64L15.34,2.1a1,1,0,0,0-1.05-.8L12.06,1.47,10.47,0a1,1,0,0,0-1.41,0L7.47,1.59,5.24,1.74a1,1,0,0,0-1.05.8L3.72,4.78,2.08,6.42l-.47,2.23a1,1,0,0,0,.8,1.05l2.24.47L6.29,12.81,6.82,15a1,1,0,0,0,1.05.8l2.23-.47L12.69,17l2.23.47a1,1,0,0,0,1.05-.8L16.44,14.4l1.64-1.64.47-2.23A1,1,0,0,0,21.94,11.34Z"/>
+                    </svg>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="logo-container">
+                <div class="main-logo">
+				<img src="assets/images/FPCLv3.png" alt="FPC Logo" width = 300px height = 300px>
+                </div>
+            </div>
+            <h1>Fair Play Collective</h1>
+            <p>an experiment in backer-funded, indie developer mutual aid</p>
+            <div class="cta-buttons">
+                <a href="#manifesto" class="btn btn-primary" onclick="showSection('manifesto')">Read Manifesto</a>
+                <a href="#about" class="btn btn-secondary" onclick="showSection('about')">Learn More</a>
+            </div>
+        </section>
+
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </main>
+
+    <!-- Content sections for other pages -->
+    <div id="manifesto-content" class="content-section">
+        <h2>Our Manifesto</h2>
+        <p>The Fair Play Collective represents a new approach to supporting independent game developers through community-driven funding and mutual aid.</p>
+        <p>We believe in creating sustainable pathways for indie developers to pursue their creative visions without compromising their artistic integrity or personal wellbeing.</p>
+        <p>Our mission is to build a supportive ecosystem where developers can focus on what they do best: creating amazing games.</p>
+    </div>
+
+    <div id="faq-content" class="content-section">
+        <h2>Frequently Asked Questions</h2>
+        <p><strong>What is the Fair Play Collective?</strong></p>
+        <p>The Fair Play Collective is an experimental initiative focused on providing backer-funded mutual aid to independent game developers.</p>
+        
+        <p><strong>How does it work?</strong></p>
+        <p>We connect community backers with indie developers through a transparent, community-driven funding model that prioritizes developer autonomy and creative freedom.</p>
+        
+        <p><strong>Who can participate?</strong></p>
+        <p>Both developers seeking support and community members interested in backing indie projects are welcome to join our collective.</p>
+    </div>
+
+    <div id="about-content" class="content-section">
+        <h2>About Us</h2>
+        <p>The Fair Play Collective emerged from a recognition that the current funding landscape for independent game developers often comes with strings attached that can compromise creative vision.</p>
+        <p>We're building an alternative model based on mutual aid principles, where community support enables developers to pursue their creative goals with greater autonomy.</p>
+        <p>Our approach prioritizes transparency, community involvement, and sustainable support for the indie gaming ecosystem.</p>
+    </div>
+
+    <div id="contact-content" class="content-section">
+        <h2>Get in Touch</h2>
+        <p>Interested in learning more about the Fair Play Collective? We'd love to hear from you.</p>
+        <p>Whether you're a developer looking for support, a community member interested in backing projects, or someone curious about our mission, we welcome your questions and ideas.</p>
+        <p>Reach out to us and join the conversation about building a more equitable future for indie game development.</p>
+    </div>
+
+    <script>
+        function showSection(sectionName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            const hero = document.querySelector('.hero');
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            
+            sections.forEach(section => section.classList.remove('active'));
+            
+            if (sectionName === 'home') {
+                hero.style.display = 'block';
+                scrollIndicator.style.display = 'block';
+            } else {
+                hero.style.display = 'none';
+                scrollIndicator.style.display = 'none';
+                document.getElementById(sectionName + '-content').classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Handle logo click to return home
+        document.querySelector('.logo').addEventListener('click', function(e) {
+            e.preventDefault();
+            showSection('home');
+        });
+
+        // Add some interactivity to search and settings icons
+        document.querySelector('.search-icon').addEventListener('click', function() {
+            alert('Search functionality coming soon!');
+        });
+
+        document.querySelector('.settings-icon').addEventListener('click', function() {
+            alert('Settings panel coming soon!');
+        });
+    </script>
+</body>
+</html>
