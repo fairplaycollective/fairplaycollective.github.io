@@ -6,6 +6,12 @@
     <title>Fair Play Collective</title>
 	<link rel="stylesheet" type="text/css" href="modernstyle.css">
 	<link href="/assets/icons" rel="stylesheet"> <!--load all styles -->
+	
+	<script>
+    function scrollToDiv() {
+      document.getElementById("home-text-element-light").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
     <style>
       
     </style>
@@ -21,6 +27,7 @@
 
     <header>
         <nav>
+		
             <a href="#home" class="logo">Fair Play Collective</a>
             <ul class="nav-links">
                 <li><a href="#manifesto" onclick="showSection('manifesto')">manifesto</a></li>
@@ -44,14 +51,15 @@
 
     <main>
         <section id="home" class="hero">
+		
+		
             <div class="logo-container">
                 <div class="main-logo">
 				<img src="assets/images/FPCLv3.png" alt="FPC Logo" width = 300px height = 300px>
                 </div>
             </div>
-			<i class="fa-solid fa-cloud"></i>
             <h1>Fair Play Collective</h1>
-            <p>an experiment in backer-funded, indie developer mutual aid</p>
+            <p align="center">an experiment in backer-funded, indie developer mutual aid</p>
 			
 			<div class = "socials-element">
 			<!-- Discord Icon -->
@@ -92,10 +100,42 @@
 			
             <div class="cta-buttons">
                 <a href="#manifesto" class="btn btn-primary" onclick="showSection('manifesto')">Read Manifesto</a>
-                <a href="#about" class="btn btn-secondary" onclick="showSection('about')">Learn More</a>
+                <div class="btn btn-secondary" onclick="scrollToDiv()">Learn More</a>
             </div>
-        </section>
+			</div>
+			<hr>
+		
+		<div class = "home-text-element-light">
+		
+		<p align="justify">We want to build a <span style= "color: rgba(208, 127, 224)"><strong>better games industry.</strong></span>
+			<br>
+			<br>
+			<span style= "color:rgba(208, 127, 224)"><strong>For devs:</strong></span> fair pay, reasonable hours, sustainable work and making something that you love shouldn’t be a dream - it should be the reality.
+			<br>
+			<br>
+			<span style= "color:rgba(208, 127, 224)"><strong>For players:</strong></span> this is a chance to give back to the teams you love (and will love!), ensuring that you can enjoy games that aren’t dependent on crunch and layoffs, so that those teams will be around for years to come.
+			<br>
+			<br>
+			The Fair Play Collective is just getting started, and we want to hear from you as we build this movement. We’re inviting dev teams, supporters, and anyone interested in building a better game industry to <span style= "color:rgba(208, 127, 224)"><strong>help us shape this from the start.</strong></span>
+			</p>
+		
+		
 
+			
+		
+		</div>
+		
+		
+        </section>
+		
+		<section>
+		
+		
+</section>
+
+
+
+	
         <div class="scroll-indicator">
             <div class="scroll-arrow"></div>
         </div>
