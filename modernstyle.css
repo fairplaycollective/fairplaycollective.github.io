@@ -133,7 +133,7 @@
         }
 
         .logo-container {
-            margin-bottom: 1rem;
+            margin-bottom: 0;
             position: relative;
         }
 
@@ -141,7 +141,7 @@
             width: 600px;
             height: 300px;
             margin: 0 auto;
-            margin-top:8em;
+            margin-top:5em;
             margin-bottom:0px;
             border-radius: 50%;
             display: flex;
@@ -180,13 +180,13 @@
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 300;
-            margin-bottom: 1rem;
+            margin-bottom: ,5rem;
             letter-spacing: 2px;
         }
 
         .hero p {
             font-size: 1.3rem;
-                        margin-bottom: 3rem;
+            margin-bottom: 3rem;
             line-height: 1.6;
 			
         }
@@ -316,7 +316,7 @@
 		
 		.socials-element {
 			width:100%;
-			padding-bottom: 4em;
+			padding-bottom: 2em;
 			color: rgb(208, 127, 224);
 			display: flex; /* or display: grid */
 			justify-content: space-evenly; /* Options: space-around, space-evenly, etc. */		

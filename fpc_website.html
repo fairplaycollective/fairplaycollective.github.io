@@ -7,11 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="modernstyle.css">
 	<link href="/assets/icons" rel="stylesheet"> <!--load all styles -->
 	
-	<script>
-    function scrollToDiv() {
-      document.getElementById("home-text-element-light").scrollIntoView({ behavior: "smooth" });
-    }
-  </script>
+	
     <style>
       
     </style>
@@ -56,7 +52,7 @@
 		
             <div class="logo-container">
                 <div class="main-logo">
-				<img src="assets/images/FPCL2.png" alt="FPC Logo" width="437.5">
+				<img src="assets/images/FPCL2.png" alt="FPC Logo" width="350px">
                 </div>
             </div>
             <h1>Fair Play Collective</h1>
@@ -103,6 +99,21 @@
                 <a href="#manifesto" class="btn btn-primary" onclick="showSection('manifesto')">Read Manifesto</a>
                 <div class="btn btn-secondary" onclick="scrollToDiv()">Learn More</a>
             </div>
+            <script>
+        function scrolldiv() {
+            window
+                .scrollTo(0, findPosition(document.getElementById("home-text-element-ligh")));
+        }
+        function findPosition(obj) {
+            let currenttop = 0;
+            if (obj.offsetParent) {
+                do {
+                    currenttop += obj.offsetTop;
+                } while ((obj = obj.offsetParent));
+                return [currenttop];
+            }
+        }
+    </script>
 			</div>
 			<hr>
 		
@@ -137,9 +148,7 @@
 
 
 	
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
-        </div>
+       
     </main>
 
     <!-- Content sections for other pages -->
