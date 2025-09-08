@@ -52,7 +52,8 @@
             bottom: 20%;
             left: 20%;
             animation-delay: -14s;
-        }
+        }  
+       
 
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
