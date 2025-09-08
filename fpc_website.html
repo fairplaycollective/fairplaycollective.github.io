@@ -99,21 +99,7 @@
                 <a href="#manifesto" class="btn btn-primary" onclick="showSection('manifesto')">Read Manifesto</a>
                 <div class="btn btn-secondary" onclick="scrollToDiv()">Learn More</a>
             </div>
-            <script>
-        function scrolldiv() {
-            window
-                .scrollTo(0, findPosition(document.getElementById("home-text-element-light")));
-        }
-        function findPosition(obj) {
-            let currenttop = 0;
-            if (obj.offsetParent) {
-                do {
-                    currenttop += obj.offsetTop;
-                } while ((obj = obj.offsetParent));
-                return [currenttop];
-            }
-        }
-    </script>
+         
 			</div>
 			<hr>
 		
@@ -136,7 +122,22 @@
 			
 		
 		</div>
-		
+        
+		   <script>
+        function scrolldiv() {
+            window
+                .scrollTo(0, findPosition(document.getElementById("home-text-element-light")));
+        }
+        function findPosition(obj) {
+            let currenttop = 0;
+            if (obj.offsetParent) {
+                do {
+                    currenttop += obj.offsetTop;
+                } while ((obj = obj.offsetParent));
+                return [currenttop];
+            }
+        }
+    </script>
 		
         </section>
 		
