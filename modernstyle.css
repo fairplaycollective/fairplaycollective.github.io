@@ -36,9 +36,6 @@
             top: 20%;
             left: 10%;
             animation-delay: 0s;
-		
-			
-			
         }
 
         .bg-shape:nth-child(2) {
@@ -47,8 +44,6 @@
             top: 60%;
             right: 15%;
             animation-delay: -7s;
-			
-			
         }
 
         .bg-shape:nth-child(3) {
@@ -142,10 +137,11 @@
         }
 
         .main-logo {
-            width: 300px;
+            width: 600px;
             height: 300px;
-            margin: 0 auto 2rem;
+            margin: 0 auto;
             margin-top:8em;
+            margin-bottom:0px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -160,9 +156,7 @@
             left: -10px;
             right: -10px;
             bottom: -10px;
-            border: 5px solid rgba(231, 47, 109, 1);
-            border-radius: 50%;
-            animation: rotate 10s linear infinite;
+            
         }
 
         .logo-symbol {
