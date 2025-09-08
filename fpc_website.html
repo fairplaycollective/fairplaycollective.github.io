@@ -97,47 +97,20 @@
 			
             <div class="cta-buttons">
                 <a href="#manifesto" class="btn btn-primary" onclick="showSection('manifesto')">Read Manifesto</a>
-                <div class="btn btn-secondary" onclick="scrollToDiv()">Learn More</a>
-            </div>
-         
+                <a href="#home-text-element-light"><div class="btn btn-secondary">Learn More
+            </div></a>
+          
 			</div>
 			<hr>
 		
-		<div class = "home-text-element-light">
-		
-		<p align="justify">We want to build a <span style= "color: rgba(208, 127, 224)"><strong>better games industry.</strong></span>
-			<br>
-			<br>
-			<span style= "color:rgba(208, 127, 224)"><strong>For devs:</strong></span> fair pay, reasonable hours, sustainable work and making something that you love shouldn’t be a dream - it should be the reality.
-			<br>
-			<br>
-			<span style= "color:rgba(208, 127, 224)"><strong>For players:</strong></span> this is a chance to give back to the teams you love (and will love!), ensuring that you can enjoy games that aren’t dependent on crunch and layoffs, so that those teams will be around for years to come.
-			<br>
-			<br>
-			The Fair Play Collective is just getting started, and we want to hear from you as we build this movement. We’re inviting dev teams, supporters, and anyone interested in building a better game industry to <span style= "color:rgba(208, 127, 224)"><strong>help us shape this from the start.</strong></span>
-			</p>
-		
-		
+		<div class = "home-text-element-light" id="home-text-element-light" style="text-align: justify">
+		    <p align="justify"><p>We want to build a <span style= "color: rgba(208, 127, 224)"><strong>better games industry.</strong></span></p>
+			<span style= "color:rgba(208, 127, 224)"><strong>For devs:</strong></span> fair pay, reasonable hours, sustainable work and making something that you love shouldn’t be a dream - it should be the reality.</p>
+			<span style= "color:rgba(208, 127, 224)"><strong>For players:</strong></span> this is a chance to give back to the teams you love (and will love!), ensuring that you can enjoy games that aren’t dependent on crunch and layoffs, so that those teams will be around for years to come.</p>
+			The Fair Play Collective is just getting started, and we want to hear from you as we build this movement. We’re inviting dev teams, supporters, and anyone interested in building a better game industry to <span style= "color:rgba(208, 127, 224)"><strong>help us shape this from the start.</strong></span></p>
+		</p></div>
 
-			
-		
-		</div>
-        
-		   <script>
-        function scrolldiv() {
-            window
-                .scrollTo(0, findPosition(document.getElementById("home-text-element-light")));
-        }
-        function findPosition(obj) {
-            let currenttop = 0;
-            if (obj.offsetParent) {
-                do {
-                    currenttop += obj.offsetTop;
-                } while ((obj = obj.offsetParent));
-                return [currenttop];
-            }
-        }
-    </script>
+		 
 		
         </section>
 		
@@ -223,5 +196,6 @@
             alert('Settings panel coming soon!');
         });
     </script>
+
 </body>
 </html>
