@@ -3,11 +3,19 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+*:before, *:after { content: ''; }
         html {
   scroll-behavior: smooth;
 }
-
+.dots {
+  $color: orange;
+  color: $color;
+  // height: 8px;
+  border-width: 0 0 8px;
+  border-style: solid;
+  border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 1" width="8" height="4"><circle fill="#{$color}" cx="1" cy="0.5" r="0.5"/></svg>') 0 0 100% repeat;
+   width: 216px;
+}
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -352,7 +360,6 @@
 			background: cover;
 			s
 			min-width:800px;
-			margin-top: 2em;
 			padding: 1em;
 			padding-bottom: .5em;
 			border-radius:1em;
@@ -362,4 +369,48 @@
 			
 		}
 		
-		
+        .linerPurp {
+  display: flex;
+  align-items: flex-start;
+  text-align: center;
+
+  &:after {
+    content: '';
+    flex-grow: 1;
+    height: 3px;
+    background: rgb(208, 127, 224);
+    min-width: 20px;
+    margin:auto;
+  }
+
+  &:after {
+    margin-left: 20px;
+  }
+}
+
+.linerPink {
+  display: flex;
+  align-items: flex-start;
+  text-align: center;
+
+  &:after {
+    content: '';
+    flex-grow: 1;
+    height: 3px;
+    background: rgba(240, 62, 130);
+    min-width: 20px;
+    margin:auto;
+  }
+
+  &:after {
+    margin-left: 20px;
+  }
+}
+
+.purpleSpan{
+color: rgba(208, 127, 224);
+}
+
+.pinkSpan {
+    color: rgba(240, 62, 130);
+}
