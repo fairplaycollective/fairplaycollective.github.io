@@ -407,10 +407,199 @@
   }
 }
 
+.linerPink2 {
+  display: flex;
+  align-items: flex-start;
+  text-align: center;
+
+  &:after {
+    content: '';
+    flex-grow: 1;
+    height: 3px;
+    background: rgba(213, 116, 208, 1);
+    min-width: 20px;
+    margin:auto;
+  }
+
+  &:after {
+    margin-left: 20px;
+  }
+}
+
+.linerPink3 {
+  display: flex;
+  align-items: flex-start;
+  text-align: center;
+
+  &:after {
+    content: '';
+    flex-grow: 1;
+    height: 3px;
+    background: rgba(219, 105, 192, 1);
+    min-width: 20px;
+    margin:auto;
+  }
+
+  &:after {
+    margin-left: 20px;
+  }
+}
+
+.linerPink4 {
+  display: flex;
+  align-items: flex-start;
+  text-align: center;
+
+  &:after {
+    content: '';
+    flex-grow: 1;
+    height: 3px;
+    background: rgba(224, 94, 176, 1);
+    min-width: 20px;
+    margin:auto;
+  }
+
+  &:after {
+    margin-left: 20px;
+  }
+}
+
+.linerPink5 {
+  display: flex;
+  align-items: flex-start;
+  text-align: center;
+
+  &:after {
+    content: '';
+    flex-grow: 1;
+    height: 3px;
+    background: rgba(229, 83, 161, 1);
+    min-width: 20px;
+    margin:auto;
+  }
+
+  &:after {
+    margin-left: 20px;
+  }
+}
+
+.linerPink6 {
+  display: flex;
+  align-items: flex-start;
+  text-align: center;
+
+  &:after {
+    content: '';
+    flex-grow: 1;
+    height: 3px;
+    background: rgba(235, 73, 145, 1);
+    min-width: 20px;
+    margin:auto;
+  }
+
+  &:after {
+    margin-left: 20px;
+  }
+}
+
 .purpleSpan{
 color: rgba(208, 127, 224);
 }
-
+.ptpspan2{
+color: rgba(213, 116, 208, 1);
+}
+.ptpspan3{
+color: rgba(219, 105, 192, 1);
+}
+.ptpspan4{
+color: rgba(224, 94, 176, 1);
+}
+.ptpspan5{
+color: rgba(229, 83, 161, 1);
+}
+.ptpspan6{
+color: rgba(235, 73, 145, 1);
+}
 .pinkSpan {
     color: rgba(240, 62, 130);
+}
+
+/* Accent gradient (same palette you used) */
+:root{
+  --accent-from: rgba(208, 127, 224, 1);
+  --accent-to:   rgba(240, 62, 130, 1);
+}
+
+/* Segmented bar */
+.section-bar{
+  display:flex;
+  gap:0;                        /* single bar look */
+  border:2px solid rgba(255,255,255,0.3);
+  border-radius:999px;
+  overflow:hidden;              /* rounds the inner edges */
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:saturate(120%) blur(6px); /* optional glass look */
+  -webkit-backdrop-filter:saturate(120%) blur(6px);
+  margin:1rem auto 2rem;
+  max-width:min(1100px, 92vw);
+}
+
+/* Each segment */
+.section-bar a{
+  flex:1 1 0;
+  text-align:center;
+  color:#fff;
+  text-decoration:none;
+  padding:0.85rem 1rem;
+  font-weight:500;
+  transition:background 0.25s ease, color 0.25s ease;
+  position:relative;
+}
+
+/* Dividers between segments */
+.section-bar a + a{
+  border-left:2px solid rgba(255,255,255,0.25);
+}
+
+/* Hover + focus match your .btn-secondary feel */
+.section-bar a:hover,
+.section-bar a:focus-visible{
+  background:rgba(255,255,255,0.10);
+  outline:none;
+}
+
+/* Active/current section (add .active to the link) */
+.section-bar a.active{
+  background:linear-gradient(135deg, var(--accent-from), var(--accent-to));
+  box-shadow:0 8px 24px rgba(240,62,130,0.35);
+}
+
+/* Small underline accent for hover/active (optional flair) */
+.section-bar a::after{
+  content:"";
+  position:absolute;
+  left:12%;
+  right:12%;
+  bottom:6px;
+  height:3px;
+  border-radius:2px;
+  background:transparent;
+  transition:background 0.25s ease;
+}
+.section-bar a:hover::after,
+.section-bar a.active::after{
+  background:linear-gradient(90deg, var(--accent-from), var(--accent-to));
+}
+
+/* Mobile: allow horizontal scrolling if cramped */
+@media (max-width: 720px){
+  .section-bar{
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .section-bar::-webkit-scrollbar{ display:none; }
+  .section-bar a{
+    flex:0 0 auto;              /* keep segments readable */
+    padding:0.85rem 1.1rem;
+  }
 }
