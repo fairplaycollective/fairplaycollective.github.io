@@ -140,6 +140,8 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            margin-left:2em;
+            margin-right:2em;
         }
 
         .hero {
@@ -524,7 +526,7 @@ color: rgba(235, 73, 145, 1);
     color: rgba(240, 62, 130);
 }
 
-/* Accent gradient (same palette you used) */
+/* Accent gradient (same palette) */
 :root{
   --accent-from: rgba(208, 127, 224, 1);
   --accent-to:   rgba(240, 62, 130, 1);
