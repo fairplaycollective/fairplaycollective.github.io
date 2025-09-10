@@ -536,12 +536,9 @@ color: rgba(235, 73, 145, 1);
 .section-bar{
   display:flex;
   gap:0;                        /* single bar look */
-  border:2px solid rgba(255,255,255,0.3);
-  border-radius:999px;
+  
   overflow:hidden;              /* rounds the inner edges */
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:saturate(120%) blur(6px); /* optional glass look */
-  -webkit-backdrop-filter:saturate(120%) blur(6px);
+  
   margin:1rem auto 2rem;
   max-width:min(1100px, 92vw);
 }
@@ -566,7 +563,7 @@ color: rgba(235, 73, 145, 1);
 /* Hover + focus match your .btn-secondary feel */
 .section-bar a:hover,
 .section-bar a:focus-visible{
-  background:rgba(255,255,255,0.10);
+  
   outline:none;
 }
 
