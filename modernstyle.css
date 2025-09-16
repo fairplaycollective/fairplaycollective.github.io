@@ -191,15 +191,14 @@ main {
 .main-logo {
     width: 600px;
     height: 300px;
-    margin: 0 auto;
-    margin-top: 2em;
+    margin: auto;
+    margin-top: 5em;
     margin-bottom: 0px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding-top:2em;
 }
 
 .main-logo::before {
