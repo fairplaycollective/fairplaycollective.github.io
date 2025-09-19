@@ -300,7 +300,7 @@ main {
     border-radius: 1em;
     background-size: cover;
     background-position: center;
-    text-align: justify;
+    text-align: left;
 }
 
 /* Legacy support for existing IDs */
