@@ -1,51 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About - Fair Play Collective</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fair Play Collective - About Us</title>
+    <link rel="stylesheet" type="text/css" href="modernstyle.css">
+    <link href="/assets/icons" rel="stylesheet"> <!-- Load all styles -->
+    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
 </head>
+
 <body>
-  <header>
-    <h1>👤 About</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">✨ Home</a></li>
-        <li><a href="manifesto.html">📖 Manifesto</a></li>
-        <li><a href="faq.html">❓ FAQ</a></li>
-        <li><a href="about.html">👤 About</a></li>
-        <li><a href="contact.html">✉️ Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Animated background decoration -->
+    <div class="bg-decoration">
+        <div class="bg-shape"></div>
+        <div class="bg-shape"></div>
+        <div class="bg-shape"></div>
+    </div>
 
-  <main>
-    <section>
-      <h2>Dylan Smith</h2>
-      <p><em>IT Professional &middot; Game Industry Veteran &middot; Founder, The Fair Play Collective</em></p>
+    <!-- Fixed header navigation -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">FPC</a>
+            <ul class="nav-links">
+                <li><a href="manifesto.html">manifesto</a></li>
+                <li><a href="faq.html">faq</a></li>
+                <li><a href="about.html">about</a></li>
+                <li>
+                    <!-- Search icon SVG -->
+                    <svg class="search-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"/>
+                    </svg>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-      <p>Hi, I’m Dylan.</p>
+    <!-- Main content area -->
+    <main>
+        <!-- About page hero section -->
+        <section id="about-hero" class="hero" style="margin-top: 8em;">
+            <h1>About the Fair Play Collective</h1>
+            <p>Meet the people working to build a better games industry</p>
+            
+            <!-- Navigation bar for about page sections -->
+            <nav class="section-bar" aria-label="About page sections">
+                <a href="#our-story">Our Story</a>
+                <a href="#meet-the-team">Meet the Team</a>
+                <a href="#our-approach">Our Approach</a>
+                <a href="#get-involved">Get Involved</a>
+            </nav>
 
-      <p>I spent nearly a decade in the game industry, working behind the scenes as an IT lead at one of the biggest studios in the world. I wasn’t a game dev, but I worked every day alongside the people who make games possible &mdash; solving problems, supporting teams, and helping others thrive.</p>
+            <!-- Our Story Section -->
+            <div class="content-block" id="our-story">
+                <h2 class="linerPurp">
+                    <span class="purpleSpan"><strong>Our Story</strong></span>
+                </h2>
+                <br>
+                <p>The Fair Play Collective began as a response to watching an industry we love struggle with unsustainable practices. Mass layoffs, endless crunch, and the constant pressure to prioritize profits over people have become the norm rather than the exception.</p>
+                <p><span class="purpleSpan">We believe there's a better way.</span></p>
+                <p>Started by people who've worked in and around the games industry, the FPC represents an experiment in community-driven support for independent developers. We're not trying to replace existing systems. We're trying to prove that sustainable, human-centered game development is not only possible, but profitable and fulfilling for everyone involved.</p>
+                <p>We're still growing, still learning, and still figuring out the best ways to make this vision a reality. But we're committed to transparency, accountability, and putting the wellbeing of creators first.</p>
+            </div>
 
-      <p>And then I got laid off.</p>
+            <!-- Meet the Team Section -->
+            <div class="content-block" id="meet-the-team">
+                <h2 class="linerPink2">
+                    <span class="ptpspan2"><strong>Meet the Team</strong></span>
+                </h2>
+                <br>
+                
+                <!-- Team Member: Dylan Smith -->
+                <div class="team-member">
+                    <div class="member-header">
+                        <h3>Dylan Smith</h3>
+                        <p class="member-title">IT Professional · Game Industry Person · Founder, The Fair Play Collective</p>
+                    </div>
+                    <div class="member-bio">
+                        <p>Hi, I'm Dylan.</p>
+                        <p>I spent nearly a decade in the game industry, working in IT at one of the biggest game studios in the world. While I wasn't a dev, I worked every day alongside the people who make games possible, solving problems, supporting teams, and helping others thrive.</p>
+                        <p>And then I got laid off.</p>
+                        <p>So many talented people have been let go in the last few years. Studios closed. Projects scrapped. Real. Lives. Uppended. It's disheartening when you love this industry and especially the medium.</p>
+                        <p>But instead of just watching it burn, I'm trying something different.</p>
+                        <p>The <span class="ptpspan2"><strong>Fair Play Collective</strong></span> isn't a company (yet) (but almost!). It's just an idea, a seed, that says maybe there's a better way to support game development: one based on sustainability, transparency, and human-centered values.</p>
+                        <p>If that resonates with you, I'd love to talk.</p>
+                    </div>
+                </div>
 
-      <p>So many talented people have been let go in the last few years. Studios closed. Projects scrapped. And behind the headlines: real lives upended. It’s disheartening &mdash; especially when you love this industry and the medium.</p>
+                <!-- Team Member: Dr. Andy Bowman -->
+                <div class="team-member">
+                    <div class="member-header">
+                        <h3>Dr. Andy Bowman</h3>
+                        <p class="member-title">Doctor on Staff · Director of Business Things</p>
+                    </div>
+                    <div class="member-bio">
+                        <p>Dr. Andy Bowman is an assistant professor of Management Information Systems at the College of Business in East Carolina University. His lifelong passion for gaming has driven him to use his background and research for the good of art instead of evil.</p>
+                    </div>
+                </div>
 
-      <p>But instead of just watching it burn, I’m trying something different.</p>
+                <!-- Team Member: Rachel Smith -->
+                <div class="team-member">
+                    <div class="member-header">
+                        <h3>Rachel Smith</h3>
+                        <p class="member-title">Lawful Good · Pro Bono Legal Counsel</p>
+                    </div>
+                    <div class="member-bio">
+                        <p>I'm Rachel (she/her), and I'm a transactional corporate attorney for a successful financial services software company. I love to wear too many hats for startup companies and I play a LOT of video games.</p>
+                        <p>My expertise encompasses start-up business operations, robust general corporate compliance, and proactive risk management. I've held diverse, high-level positions, deeply embedding myself in customer success, product design, corporate operations, and various in-house legal services.</p>
+                        <p>Beyond the professional realm, I love games, and I want to help the Fair Play Collective champion them as vital artistic endeavors that bring us all together. I currently lend my legal expertise to the FPC as its Pro Bono Legal Counsel.</p>
+                    </div>
+                </div>
 
-      <p>The Fair Play Collective isn’t a company (yet). It’s not a nonprofit (yet). Right now, it’s just an idea &mdash; a seed &mdash; that says maybe there’s a better way to support game development: one based on sustainability, transparency, and human-centered values.</p>
+                <!-- Team Member: Tamara Hughes -->
+                <div class="team-member">
+                    <div class="member-header">
+                        <h3>Tamara Hughes</h3>
+                        <p class="member-title">Resident Nerd · Community & Communications</p>
+                    </div>
+                    <div class="member-bio">
+                        <p>I'm Tamara (she/her)! I've been in the games industry for almost eight years, working with small and large indie teams. I decided to volunteer with the Fair Play Collective after watching layoffs happen at my former workplace, and throughout the industry.</p>
+                        <p>I have a background in community management, social media, events, and communications, primarily for virtual reality games. I enjoy indie puzzle games, role-playing games, social VR, and spending time outdoors walking in the mountains.</p>
+                    </div>
+                </div>
+            </div>
 
-      <p><strong>I'm just one guy starting something that feels right.</strong></p>
+            <!-- Our Approach Section -->
+            <div class="content-block" id="our-approach">
+                <h2 class="linerPink3">
+                    <span class="ptpspan3"><strong>Our Approach</strong></span>
+                </h2>
+                <br>
+                <p><span class="ptpspan3">We're building something different.</span> Not a traditional publisher, not a crowdfunding platform, but a community-driven mutual aid system that puts developers first.</p>
+                
+                <div class="approach-principles">
+                    <div class="principle-item">
+                        <h4><strong>Community-Funded:</strong></h4>
+                        <p>Backers contribute monthly to a shared pool that supports multiple studios, spreading risk and ensuring stable funding.</p>
+                    </div>
+                    
+                    <div class="principle-item">
+                        <h4><strong>Developer-Led:</strong></h4>
+                        <p>Decisions about which projects to fund are made by developers, for developers. No corporate executives determining artistic merit.</p>
+                    </div>
+                    
+                    <div class="principle-item">
+                        <h4><strong>Transparency First:</strong></h4>
+                        <p>Where the money goes, how decisions are made, and what's working (or not working) – it's all out in the open.</p>
+                    </div>
+                    
+                    <div class="principle-item">
+                        <h4><strong>Sustainability Focused:</strong></h4>
+                        <p>We're not chasing unicorns or overnight successes. We're building systems that can support creators for years, not just months.</p>
+                    </div>
+                </div>
+            </div>
 
-      <p>If that resonates with you, I’d love to <a href="contact.html">talk</a>.</p>
-    </section>
-  </main>
+            <!-- Get Involved Section -->
+            <div class="content-block" id="get-involved">
+                <h2 class="linerPink">
+                    <span class="pinkSpan"><strong>Get Involved</strong></span>
+                </h2>
+                <br>
+                <p>The Fair Play Collective is still in its early stages, and we're actively looking for people who share our vision of a better games industry.</p>
+                
+                <div class="involvement-options">
+                    <div class="involvement-item">
+                        <h4><span class="pinkSpan">For Developers:</span></h4>
+                        <p>Whether you're a solo indie or a small studio, we want to hear from you. We're looking for creators who are passionate about their craft and committed to ethical development practices.</p>
+                    </div>
+                    
+                    <div class="involvement-item">
+                        <h4><span class="pinkSpan">For Supporters:</span></h4>
+                        <p>Players, industry professionals, and anyone who believes games are art worth supporting. Your backing – financial and otherwise – makes this possible.</p>
+                    </div>
+                    
+                    <div class="involvement-item">
+                        <h4><span class="pinkSpan">For Industry Experts:</span></h4>
+                        <p>We need advisors, mentors, and people with experience who can help us navigate the complexities of building something new in an established industry.</p>
+                    </div>
+                </div>
+                
+                <p>Ready to be part of something different? <span class="pinkSpan">Join the conversation</span> and help us shape the future of game development.</p>
+            </div>
 
-  <footer>
-    <p>A static website made with ❤️ by real humans - until we can afford a fancier host. &copy; 2025 The Fair Play Collective</p>
-  </footer>
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <p>Questions? Ideas? Want to get involved? Reach out through our social channels or join our Discord community.</p>
+                
+                <!-- Social media links section (reusing from main page) -->
+                <div class="socials-element">
+                    <!-- Discord -->
+                    <a href="" target="_blank" aria-label="Discord">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="2em" height="2em" color="rgb(208, 127, 224)">
+                            <path fill="currentColor" d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1 .1s-.6 .4-.8 .8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2c-41.3 7.1-81.6 19.6-119.7 37.1-.3 .1-.6 .4-.8 .7-76.2 113.8-97.1 224.9-86.9 334.5 0 .3 .1 .5 .2 .8s.3 .4 .5 .6c44.4 32.9 94 58 146.8 74.2 .4 .1 .8 .1 1.1 0s.7-.4 .9-.7c11.3-15.4 21.4-31.8 30-48.8 .1-.2 .2-.5 .2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6 .2-.9 .3-.5 .6-.7c3.1-2.3 6.2-4.7 9.1-7.1 .3-.2 .6-.4 .9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1 .7-.2 1-.2s.7 .2 .9 .4c2.9 2.4 6 4.9 9.1 7.2 .2 .2 .4 .4 .6 .7s.2 .6 .2 .9-.1 .6-.3 .9-.4 .5-.6 .6c-14.7 8.6-30 15.9-45.9 21.8-.2 .1-.5 .2-.7 .4s-.3 .4-.4 .7-.1 .5-.1 .8 .1 .5 .2 .8c8.8 17 18.8 33.3 30 48.8 .2 .3 .6 .6 .9 .7s.8 .1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2 .2-.2 .4-.4 .5-.6s.2-.5 .2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2zm195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2z"/>
+                        </svg>
+                    </a>
+                    
+                    <!-- Bluesky -->
+                    <a href="https://bsky.app/profile/fairplaycollective.org" target="_blank" aria-label="Bluesky">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="2em" height="2em" color="rgb(208, 127, 224)">
+                            <path fill="currentColor" d="M407.8 294.7c-3.3-.4-6.7-.8-10-1.3 3.4 .4 6.7 .9 10 1.3zM288 227.1C261.9 176.4 190.9 81.9 124.9 35.3 61.6-9.4 37.5-1.7 21.6 5.5 3.3 13.8 0 41.9 0 58.4S9.1 194 15 213.9c19.5 65.7 89.1 87.9 153.2 80.7 3.3-.5 6.6-.9 10-1.4-3.3 .5-6.6 1-10 1.4-93.9 14-177.3 48.2-67.9 169.9 120.3 124.6 164.8-26.7 187.7-103.4 22.9 76.7 49.2 222.5 185.6 103.4 102.4-103.4 28.1-156-65.8-169.9-3.3-.4-6.7-.8-10-1.3 3.4 .4 6.7 .9 10 1.3 64.1 7.1 133.6-15.1 153.2-80.7 5.9-19.9 15-138.9 15-155.5s-3.3-44.7-21.6-52.9c-15.8-7.1-40-14.9-103.2 29.8-66.1 46.6-137.1 141.1-163.2 191.8z"/>	
+                        </svg>
+                    </a>
+                    
+                    <!-- X (Twitter) -->
+                    <a href="https://x.com/f_p_collective" target="_blank" aria-label="X (Twitter)">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="2em" height="2em" color="rgb(208, 127, 224)">
+                            <path fill="currentColor" d="M357.2 48L427.8 48 273.6 224.2 455 464 313 464 201.7 318.6 74.5 464 3.8 464 168.7 275.5-5.2 48 140.4 48 240.9 180.9 357.2 48zM332.4 421.8l39.1 0-252.4-333.8-42 0 255.3 333.8z"/>
+                        </svg>
+                    </a>
+                    
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/company/the-fair-play-collective" target="_blank" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="2em" height="2em" color="rgb(208, 127, 224)">
+                            <path fill="currentColor" d="M416 32L31.9 32C14.3 32 0 46.5 0 64.3L0 447.7C0 465.5 14.3 480 31.9 480L416 480c17.6 0 32-14.5 32-32.3l0-383.4C448 46.5 433.6 32 416 32zM135.4 416l-66.4 0 0-213.8 66.5 0 0 213.8-.1 0zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77zM384.3 416l-66.4 0 0-104c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9l0 105.8-66.4 0 0-213.8 63.7 0 0 29.2 .9 0c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9l0 117.2z"/>
+                        </svg>
+                    </a>
+                    
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/fair_play_collective/" target="_blank" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="2em" height="2em" color="rgb(208, 127, 224)">
+                            <path fill="currentColor" d="M224.3 141a115 115 0 1 0 -.6 230 115 115 0 1 0 .6-230zm-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1 -.6-149.2zm93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1 -53.6 0zm129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                        </svg>
+                    </a>
+                    
+                    <!-- YouTube -->
+                    <a href="https://www.youtube.com/@Fairplaycollective-games" target="_blank" aria-label="YouTube">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="2em" height="2em" color="rgb(208, 127, 224)">
+                            <path fill="currentColor" d="M549.7 124.1C543.5 100.4 524.9 81.8 501.4 75.5 458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5C51.2 81.8 32.7 100.4 26.4 124.1 15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8 42.6 11.5 213.4 11.5 213.4 11.5s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6l0-162.4 142.7 81.2-142.7 81.2z"/>
+                        </svg>
+                    </a>	
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript for page functionality -->
+    <script>
+        // Function to show/hide different page sections (placeholder for consistency)
+        function showSection(sectionName) {
+            console.log('Showing section:', sectionName);
+            // This could redirect to other pages or show hidden content
+        }
+
+        // Handle logo click to return to main page
+        document.querySelector('.logo').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'fpc_website.html';
+        });
+
+        // Placeholder functionality for search and settings icons
+        document.querySelector('.search-icon').addEventListener('click', function() {
+            alert('Search functionality coming soon!');
+        });
+
+        document.querySelector('.settings-icon').addEventListener('click', function() {
+            alert('Settings panel coming soon!');
+        });
+        
+        // Smooth scrolling for section navigation
+        document.querySelectorAll('.section-bar a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
