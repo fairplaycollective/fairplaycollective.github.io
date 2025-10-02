@@ -1236,15 +1236,6 @@ textarea:focus {
     transform: translateY(-1px);
 }
 
-.tiers-grid{ 
-    display: grid; 
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-areas: "cc1 cc2" "cc3 cc4" ; 
-    gap: 1.25rem; 
-    margin: 1rem 0; 
-    min-width: 0; 
-    width:100%; }
-
 
 /* Update the heart icon styling - REPLACE your existing .search-icon, .settings-icon section */
 .search-icon, 
