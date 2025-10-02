@@ -287,35 +287,8 @@
     <!-- JavaScript -->
     <script>
 // Contributors Modal
-const contributorsModal = document.getElementById('contributorsModal');
-const contributorsBtn = document.getElementById('contributorsBtn');
-const closeModal = document.getElementById('closeModal');
-
-contributorsBtn.addEventListener('click', function() {
-    contributorsModal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-});
-
-closeModal.addEventListener('click', function() {
-    contributorsModal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-});
-
-// Close modal when clicking outside of it
-window.addEventListener('click', function(event) {
-    if (event.target === contributorsModal) {
-        contributorsModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-});
-
-// Close modal with Escape key
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape' && contributorsModal.style.display === 'block') {
-        contributorsModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-});
+<!-- External JavaScript for contributors modal -->
+<script src="contributors.js"></script>
 
 
         // Smooth scroll to contribution section and auto-expand
