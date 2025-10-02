@@ -1,6 +1,7 @@
+
 /* ============================================================================
    Fair Play Collective - Modern Style CSS
-   Updated with contribution section styles
+   Clean, commented version with proper organization and structure
    ============================================================================ */
 
 /* Reset and Base Styles
@@ -173,8 +174,8 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-left: max(1rem, 2vw); 
-    margin-right: max(1rem, 2vw);
+    margin-left: 2em;
+    margin-right: 2em;
 }
 
 .hero {
@@ -189,23 +190,16 @@ main {
 }
 
 .main-logo {
-  width: clamp(180px, 80vw, 600px);  /* scales down on small screens */
-  aspect-ratio: 2 / 1;               /* keeps shape without hard height */
-  height: auto;
-  margin: 5em auto 1em;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-/* Make the image scale with its container */
-.main-logo img {
-  display: block;
-  max-width: 100%;
-  width: 100%;
-  height: auto;
+    width: 600px;
+    height: 300px;
+    margin: auto;
+    margin-top: 5em;
+    margin-bottom: 1em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .main-logo::before {
@@ -300,7 +294,7 @@ main {
    ========================================================================== */
 .content-block {
     background: rgba(0, 0, 0, 0.1);
-    min-width: 0;
+    min-width: 800px;
     margin-top: 2em;
     padding: 1em;
     padding-bottom: 0.5em;
@@ -313,7 +307,7 @@ main {
 /* Legacy support for existing IDs */
 #home-text-element-light {
     background: cover;
-    min-width: 0;
+    min-width: 800px;
     padding: 1em;
     padding-bottom: 0.5em;
     border-radius: 1em;
@@ -325,7 +319,7 @@ main {
 .home-text-element-dark {
     width: 100%;
     background: rgba(0, 0, 0, 0.3);
-    min-width: 0;
+    min-width: 800px;
     margin-top: 2em;
     padding: 1em;
     padding-bottom: 0.5em;
@@ -333,151 +327,6 @@ main {
     background-size: cover;
     background-position: center;
     position: center;
-}
-
-
-/* Contribution Section Styles
-   ========================================================================== */
-.contribution-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 1.25rem;
-    transition: all 0.3s ease;
-    grid-area: cc1;
-}
-   .contribution-card1 {
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 1.25rem;
-    transition: all 0.3s ease;
-    grid-area: cc1;
-   
-}
-.contribution-card2 {
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 1.25rem;
-    transition: all 0.3s ease;
-    grid-area: cc2;
-   
-}
-.contribution-card3 {
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 1.25rem;
-    transition: all 0.3s ease;
-    grid-area: cc3;
-   
-}
-.contribution-card4 {
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 1.25rem;
-    transition: all 0.3s ease;
-    grid-area: cc4;
-   
-}
-.contribution-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(208, 127, 224, 0.5);
-    transform: translateY(-2px);
-}
-
-.contribution-card.single-card {
-    text-align: center;
-    margin-bottom: 2rem;
-    
-}
-
-.contribution-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.contribution-card h3 {
-    color: rgba(240, 62, 130, 1);
-    font-size: 1.3rem;
-    margin-bottom: 0.75rem;
-}
-
-.contribution-card p {
-    opacity: 0.85;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-}
-
-.tier-name {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: rgba(208, 127, 224, 1);
-}
-
-.tier-price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: rgba(240, 62, 130, 1);
-}
-
-.admin-disclaimer {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
-    border-radius: 10px;
-    margin-bottom: 2rem;
-    border-left: 4px solid rgba(240, 62, 130, 1);
-}
-
-.admin-disclaimer h3 {
-    color: rgba(240, 62, 130, 1);
-    margin-bottom: 0.75rem;
-    font-size: 1.1rem;
-}
-
-.admin-disclaimer p {
-    line-height: 1.6;
-    opacity: 0.9;
-    font-size: 0.95rem;
-    margin-bottom: 0.75rem;
-}
-
-.admin-disclaimer ul {
-    margin-top: 0.75rem;
-    padding-left: 1.5rem;
-    line-height: 1.8;
-}
-
-.admin-disclaimer strong {
-    color: rgba(240, 62, 130, 1);
-}
-
-.select-tier-btn {
-    width: 100%;
-    padding: 0.9rem;
-    background: transparent;
-    color: rgba(208, 127, 224, 1);
-    border: 2px solid rgba(208, 127, 224, 1);
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    
-}
-
-.select-tier-btn:hover {
-    background: rgba(208, 127, 224, 0.1);
-    transform: translateY(-1px);
 }
 
 /* Section Headers with Decorative Lines
@@ -630,13 +479,14 @@ main {
    ========================================================================== */
 .section-bar {
     display: flex;
-    gap: 0;
+    gap: 0; /* Single bar look */
     border-radius: 25px;
-    overflow: hidden;
+    overflow: hidden; /* Rounds the inner edges */
     margin: 1rem auto 2rem;
     max-width: min(1100px, 92vw);
 }
 
+/* Individual section navigation links */
 .section-bar a {
     flex: 1 1 0;
     text-align: center;
@@ -648,21 +498,25 @@ main {
     position: relative;
 }
 
+/* Dividers between navigation segments */
 .section-bar a + a {
     border-left: 2px solid rgba(255, 255, 255, 0.25);
 }
 
+/* Hover and focus states for navigation */
 .section-bar a:hover,
 .section-bar a:focus-visible {
     background: rgba(255, 255, 255, 0.1);
     outline: none;
 }
 
+/* Active section styling */
 .section-bar a.active {
     background: linear-gradient(135deg, var(--accent-from), var(--accent-to));
     box-shadow: 0 8px 24px rgba(240, 62, 130, 0.35);
 }
 
+/* Underline accent for hover/active states */
 .section-bar a::after {
     content: "";
     position: absolute;
@@ -873,17 +727,27 @@ main {
     font-size: 1.2rem;
 }
 
+.benefits-list,
 .zero-tolerance-list,
 .enforcement-steps {
     list-style: none;
     padding-left: 0;
 }
 
+.benefits-list li,
 .zero-tolerance-list li,
 .enforcement-steps li {
     margin-bottom: 0.75rem;
     padding-left: 1.5rem;
     position: relative;
+}
+
+.benefits-list li::before {
+    content: "▶";
+    color: var(--primary-purple);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
 }
 
 .zero-tolerance-list li::before {
@@ -971,6 +835,22 @@ main {
 .involvement-item p {
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.85);
+}
+
+/* Contact Information Section
+   ========================================================================== */
+.contact-info {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.contact-info p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* Newsletter Section
@@ -1071,7 +951,7 @@ main {
 
     .content-block,
     #home-text-element-light {
-        min-width: 0;
+        min-width: auto;
         margin-left: 0;
         margin-right: 0;
     }
@@ -1080,7 +960,6 @@ main {
         margin-left: 1em;
         margin-right: 1em;
     }
-
 }
 
 /* Mobile navigation bar adjustments */
@@ -1095,7 +974,7 @@ main {
     }
     
     .section-bar a {
-        flex: 0 0 auto;
+        flex: 0 0 auto; /* Keep segments readable */
         padding: 0.85rem 1.1rem;
     }
 }
@@ -1207,16 +1086,165 @@ textarea:focus {
         background: rgba(255, 255, 255, 0.1);
     }
 }
-.tiers-grid{
-    display: grid; 
-    grid-template-columns: repeat(2, 1fr); 
-    grid-template-areas: 
-    "cc1 cc2"
-    "cc3 cc4"
-    ;
-    gap: 1.25rem;
-    margin: 1rem 0;
+
+
+/* Contribution Section Styles
+   ========================================================================== */
+.contribution-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    transition: all 0.3s ease;
+    grid-area: cc1;
+    min-width:0;
 }
+   .contribution-card1 {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    transition: all 0.3s ease;
+    grid-area: cc1;
+   
+}
+.contribution-card2 {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    transition: all 0.3s ease;
+    grid-area: cc2;
+   
+}
+.contribution-card3 {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    transition: all 0.3s ease;
+    grid-area: cc3;
+   
+}
+.contribution-card4 {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    transition: all 0.3s ease;
+    grid-area: cc4;
+   
+}
+.contribution-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(208, 127, 224, 0.5);
+    transform: translateY(-2px);
+}
+
+.contribution-card.single-card {
+    text-align: center;
+    margin-bottom: 2rem;
+    
+}
+
+.contribution-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.contribution-card h3 {
+    color: rgba(240, 62, 130, 1);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+}
+
+.contribution-card p {
+    opacity: 0.85;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.tier-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgba(208, 127, 224, 1);
+}
+
+.tier-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgba(240, 62, 130, 1);
+     white-space: normal;         /* let it wrap */
+  overflow-wrap: anywhere;     /* even aggressive wrapping if needed */
+
+}
+
+.admin-disclaimer {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    border-left: 4px solid rgba(240, 62, 130, 1);
+}
+
+.admin-disclaimer h3 {
+    color: rgba(240, 62, 130, 1);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.admin-disclaimer p {
+    line-height: 1.6;
+    opacity: 0.9;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+}
+
+.admin-disclaimer ul {
+    margin-top: 0.75rem;
+    padding-left: 1.5rem;
+    line-height: 1.8;
+}
+
+.admin-disclaimer strong {
+    color: rgba(240, 62, 130, 1);
+}
+
+.select-tier-btn {
+    width: 100%;
+    padding: 0.9rem;
+    background: transparent;
+    color: rgba(208, 127, 224, 1);
+    border: 2px solid rgba(208, 127, 224, 1);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+}
+
+.select-tier-btn:hover {
+    background: rgba(208, 127, 224, 0.1);
+    transform: translateY(-1px);
+}
+
+.tiers-grid{ 
+    display: grid; 
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas: "cc1 cc2" "cc3 cc4" ; 
+    gap: 1.25rem; 
+    margin: 1rem 0; 
+    min-width: 0; 
+    width:100%; }
+
 
 /* Update the heart icon styling - REPLACE your existing .search-icon, .settings-icon section */
 .search-icon, 
@@ -1349,61 +1377,6 @@ textarea:focus {
     border-left-color: var(--primary-pink);
     transform: translateX(5px);
 }
-
-/* Custom scrollbar for modal */
-.modal-body::-webkit-scrollbar {
-    width: 8px;
-}
-
-.modal-body::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-}
-
-.modal-body::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
-    border-radius: 10px;
-}
-
-.modal-body::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, var(--primary-pink), var(--primary-purple));
-}
-
-/* Mobile responsive for modal */
-@media (max-width: 768px) {
-    .modal-content {
-        width: 95%;
-        margin: 10% auto;
-    }
-    
-    .modal-header h2 {
-        font-size: 1.4rem;
-    }
-    
-    .contributors-list {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-/* Force newsletter iframe to be fluid on tiny screens */
-.beehiiv-embed,
-iframe[data-test-id="beehiiv-embed"] {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto;
-  min-width: 0;           /* allow it to shrink inside flex/flow */
-  display: block;
-}
-
-/* Good global safety net for media */
-img, iframe, video, svg {
-  max-width: 100%;
-  height: auto;
-}
-
-
-/*test change
 
 /* ============================================================================
    END OF STYLESHEET

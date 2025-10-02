@@ -41,19 +41,8 @@
 </header>
 
 <!-- Contributors Modal -->
- <div id="contributorsModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h2>Our Amazing Contributors</h2>
-            <span class="close-modal" id="closeModal">&times;</span>
-        </div>
-        <div class="modal-body">
-            <p class="contributors-intro">Thank you to everyone supporting the Fair Play Collective! Your contributions are building a better future for indie game development.</p>
-            <div class="contributors-list">
-                <!-- Contributors will be loaded dynamically from contributors.json -->
-            </div>
-        </div>
-    </div>
+<div class="contributors-list">
+    <!-- Contributors will be loaded dynamically from contributors.json -->
 </div>
     <!-- Main content area -->
     <main>
@@ -61,7 +50,7 @@
             <!-- Logo container -->
             <div class="logo-container">
                 <div class="main-logo">
-                    <img src="assets/images/logosoon.png" alt="FPC Logo">
+                    <img src="assets/images/logosoon.png" alt="FPC Logo" width="350px" margin-top="3em" padding-top="2em">
                 </div>
             </div>
 
@@ -296,48 +285,95 @@
     </div>
 
     <!-- JavaScript -->
- 
-<!-- External JavaScript for contributors modal -->
-<script src="contributors.js"></script>
-<script>
-    // Smooth scroll to contribution section
-    document.getElementById('contributeBtn').addEventListener('click', function(e) {
-        e.preventDefault();
-        const contributeSection = document.getElementById('contribute-section');
-        contributeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+    <script>
+// Contributors Modal
+const contributorsModal = document.getElementById('contributorsModal');
+const contributorsBtn = document.getElementById('contributorsBtn');
+const closeModal = document.getElementById('closeModal');
 
-    // Section navigation
-    function showSection(sectionName) {
-        const sections = document.querySelectorAll('.content-section');
-        const hero = document.querySelector('.hero');
-        const scrollIndicator = document.querySelector('.scroll-indicator');
-        
-        sections.forEach(section => section.classList.remove('active'));
-        
-        if (sectionName === 'home') {
-            hero.style.display = 'block';
-            if (scrollIndicator) scrollIndicator.style.display = 'block';
-        } else {
-            hero.style.display = 'none';
-            if (scrollIndicator) scrollIndicator.style.display = 'none';
-            const targetSection = document.getElementById(sectionName + '-content');
-            if (targetSection) targetSection.classList.add('active');
-        }
-        
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+contributorsBtn.addEventListener('click', function() {
+    contributorsModal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+});
+
+closeModal.addEventListener('click', function() {
+    contributorsModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+// Close modal when clicking outside of it
+window.addEventListener('click', function(event) {
+    if (event.target === contributorsModal) {
+        contributorsModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
     }
+});
 
-    // Logo click handler
-    document.querySelector('.logo').addEventListener('click', function(e) {
-        e.preventDefault();
-        showSection('home');
-    });
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && contributorsModal.style.display === 'block') {
+        contributorsModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
 
-    // Search icon placeholder
-    document.querySelector('.search-icon').addEventListener('click', function() {
-        alert('Search functionality coming soon!');
-    });
-</script>
+
+        // Smooth scroll to contribution section and auto-expand
+        document.getElementById('contributeBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const contributeSection = document.getElementById('contribute-section');
+            const dropdown = document.getElementById('contributionDropdown');
+            
+            // Scroll to section
+            contributeSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Auto-expand dropdown after scroll
+            setTimeout(function() {
+                dropdown.classList.add('active');
+                document.getElementById('toggleContribute').textContent = 'Hide Contribution Options';
+            }, 800);
+        });
+
+        // Toggle contribution dropdown
+        document.getElementById('toggleContribute').addEventListener('click', function() {
+            const dropdown = document.getElementById('contributionDropdown');
+            dropdown.classList.toggle('active');
+            this.textContent = dropdown.classList.contains('active') 
+                ? 'Hide Contribution Options' 
+                : 'Support FPC Operations';
+        });
+
+        // Section navigation
+        function showSection(sectionName) {
+            const sections = document.querySelectorAll('.content-section');
+            const hero = document.querySelector('.hero');
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            
+            sections.forEach(section => section.classList.remove('active'));
+            
+            if (sectionName === 'home') {
+                hero.style.display = 'block';
+                if (scrollIndicator) scrollIndicator.style.display = 'block';
+            } else {
+                hero.style.display = 'none';
+                if (scrollIndicator) scrollIndicator.style.display = 'none';
+                const targetSection = document.getElementById(sectionName + '-content');
+                if (targetSection) targetSection.classList.add('active');
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Logo click handler
+        document.querySelector('.logo').addEventListener('click', function(e) {
+            e.preventDefault();
+            showSection('home');
+        });
+
+        // Search icon placeholder
+        document.querySelector('.search-icon').addEventListener('click', function() {
+            alert('Search functionality coming soon!');
+        });
+    </script>
 </body>
 </html>
