@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fair Play Collective</title>
     <link rel="stylesheet" type="text/css" href="modernstyle.css">
-    <link href="/assets/icons" rel="stylesheet"> <!-- Load all styles -->
+    <link href="/assets/icons" rel="stylesheet">
     <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
     <script defer data-domain="fairplaycollective.org" src="https://plausible.io/js/script.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 
 <body>
@@ -18,30 +19,35 @@
         <div class="bg-shape"></div>
     </div>
 
-    <!-- Fixed header navigation -->
-    <header>
-        <nav>
-            <a href="#home" class="logo">FPC</a>
-            <ul class="nav-links">
-                <li><a href="manifesto.html">manifesto</a></li>
-                <li><a href="faq.html">faq</a></li>
-                <li><a href="about.html">about</a></li>
-                <li>
-                    <!-- Search icon SVG -->
-                    <svg class="search-icon" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"/>
-                    </svg>
-                </li>
-                
-            </ul>
-        </nav>
-    </header>
+   <header>
+    <nav>
+        <a href="#home" class="logo">FPC</a>
+        <ul class="nav-links">
+            <li><a href="manifesto.html">manifesto</a></li>
+            <li><a href="faq.html">faq</a></li>
+            <li><a href="about.html">about</a></li>
+            <li>
+                <svg class="heart-icon" id="contributorsBtn" fill="currentColor" viewBox="0 0 512 512">
+                    <path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/>
+                </svg>
+            </li>
+            <li>
+                <svg class="search-icon" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"/>
+                </svg>
+            </li>
+        </ul>
+    </nav>    
+</header>
 
+<!-- Contributors Modal -->
+<div class="contributors-list">
+    <!-- Contributors will be loaded dynamically from contributors.json -->
+</div>
     <!-- Main content area -->
     <main>
-        <!-- Hero section - main landing area -->
         <section id="home" class="hero">
-            <!-- Logo container with main FPC logo -->
+            <!-- Logo container -->
             <div class="logo-container">
                 <div class="main-logo">
                     <img src="assets/images/logosoon.png" alt="FPC Logo" width="350px" margin-top="3em" padding-top="2em">
@@ -52,44 +58,38 @@
             <h1>Fair Play Collective</h1>
             <p>an experiment in backer-funded, indie developer mutual aid</p>
             
-            <!-- Social media links section -->
+            <!-- Social media links -->
             <div class="socials-element">
-                <!-- Discord -->
                 <a href="" target="_blank" aria-label="Discord">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="2em" height="2em" color="rgb(208, 127, 224)">
                         <path fill="currentColor" d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1 .1s-.6 .4-.8 .8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2c-41.3 7.1-81.6 19.6-119.7 37.1-.3 .1-.6 .4-.8 .7-76.2 113.8-97.1 224.9-86.9 334.5 0 .3 .1 .5 .2 .8s.3 .4 .5 .6c44.4 32.9 94 58 146.8 74.2 .4 .1 .8 .1 1.1 0s.7-.4 .9-.7c11.3-15.4 21.4-31.8 30-48.8 .1-.2 .2-.5 .2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6 .2-.9 .3-.5 .6-.7c3.1-2.3 6.2-4.7 9.1-7.1 .3-.2 .6-.4 .9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1 .7-.2 1-.2s.7 .2 .9 .4c2.9 2.4 6 4.9 9.1 7.2 .2 .2 .4 .4 .6 .7s.2 .6 .2 .9-.1 .6-.3 .9-.4 .5-.6 .6c-14.7 8.6-30 15.9-45.9 21.8-.2 .1-.5 .2-.7 .4s-.3 .4-.4 .7-.1 .5-.1 .8 .1 .5 .2 .8c8.8 17 18.8 33.3 30 48.8 .2 .3 .6 .6 .9 .7s.8 .1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2 .2-.2 .4-.4 .5-.6s.2-.5 .2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2zm195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2z"/>
                     </svg>
                 </a>
                 
-                <!-- Bluesky -->
                 <a href="https://bsky.app/profile/fairplaycollective.org" target="_blank" aria-label="Bluesky">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="2em" height="2em" color="rgb(208, 127, 224)">
                         <path fill="currentColor" d="M407.8 294.7c-3.3-.4-6.7-.8-10-1.3 3.4 .4 6.7 .9 10 1.3zM288 227.1C261.9 176.4 190.9 81.9 124.9 35.3 61.6-9.4 37.5-1.7 21.6 5.5 3.3 13.8 0 41.9 0 58.4S9.1 194 15 213.9c19.5 65.7 89.1 87.9 153.2 80.7 3.3-.5 6.6-.9 10-1.4-3.3 .5-6.6 1-10 1.4-93.9 14-177.3 48.2-67.9 169.9 120.3 124.6 164.8-26.7 187.7-103.4 22.9 76.7 49.2 222.5 185.6 103.4 102.4-103.4 28.1-156-65.8-169.9-3.3-.4-6.7-.8-10-1.3 3.4 .4 6.7 .9 10 1.3 64.1 7.1 133.6-15.1 153.2-80.7 5.9-19.9 15-138.9 15-155.5s-3.3-44.7-21.6-52.9c-15.8-7.1-40-14.9-103.2 29.8-66.1 46.6-137.1 141.1-163.2 191.8z"/>	
                     </svg>
                 </a>
                 
-                <!-- X (Twitter) -->
                 <a href="https://x.com/f_p_collective" target="_blank" aria-label="X (Twitter)">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="2em" height="2em" color="rgb(208, 127, 224)">
                         <path fill="currentColor" d="M357.2 48L427.8 48 273.6 224.2 455 464 313 464 201.7 318.6 74.5 464 3.8 464 168.7 275.5-5.2 48 140.4 48 240.9 180.9 357.2 48zM332.4 421.8l39.1 0-252.4-333.8-42 0 255.3 333.8z"/>
                     </svg>
                 </a>
                 
-                <!-- LinkedIn -->
                 <a href="https://www.linkedin.com/company/the-fair-play-collective" target="_blank" aria-label="LinkedIn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="2em" height="2em" color="rgb(208, 127, 224)">
                         <path fill="currentColor" d="M416 32L31.9 32C14.3 32 0 46.5 0 64.3L0 447.7C0 465.5 14.3 480 31.9 480L416 480c17.6 0 32-14.5 32-32.3l0-383.4C448 46.5 433.6 32 416 32zM135.4 416l-66.4 0 0-213.8 66.5 0 0 213.8-.1 0zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77zM384.3 416l-66.4 0 0-104c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9l0 105.8-66.4 0 0-213.8 63.7 0 0 29.2 .9 0c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9l0 117.2z"/>
                     </svg>
                 </a>
                 
-                <!-- Instagram -->
                 <a href="https://www.instagram.com/fair_play_collective/" target="_blank" aria-label="Instagram">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="2em" height="2em" color="rgb(208, 127, 224)">
                         <path fill="currentColor" d="M224.3 141a115 115 0 1 0 -.6 230 115 115 0 1 0 .6-230zm-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1 -.6-149.2zm93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1 -53.6 0zm129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
                     </svg>
                 </a>
                 
-                <!-- YouTube -->
                 <a href="https://www.youtube.com/@Fairplaycollective-games" target="_blank" aria-label="YouTube">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="2em" height="2em" color="rgb(208, 127, 224)">
                         <path fill="currentColor" d="M549.7 124.1C543.5 100.4 524.9 81.8 501.4 75.5 458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5C51.2 81.8 32.7 100.4 26.4 124.1 15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8 42.6 11.5 213.4 11.5 213.4 11.5s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6l0-162.4 142.7 81.2-142.7 81.2z"/>
@@ -100,12 +100,11 @@
             <!-- Call-to-action buttons -->
             <div class="cta-buttons">
                 <a href="manifesto.html" class="btn btn-primary">Read Manifesto</a>
+                <a href="#contribute-section" class="btn btn-secondary" id="contributeBtn">Support FPC</a>
                 <a href="#vision-section" class="btn btn-secondary">Learn More</a>
             </div>
             
-            <!-- Main content sections -->
-            
-            <!-- Vision Section - A better games industry -->
+            <!-- Vision Section -->
             <div class="content-block" id="vision-section">
                 <h2 class="linerPurp">
                     <span class="purpleSpan"><strong>A better games industry</strong></span>
@@ -142,6 +141,90 @@
                 <p>Your support doesn't only assist individual studios - you also help shape a better future for the games industry.</p>
             </div>
 
+           <!-- CONTRIBUTION SECTION -->
+            <div class="content-block" id="contribute-section">
+                <h2 class="linerPink">
+                    <span class="pinkSpan"><strong>Support FPC</strong></span>
+                </h2>
+                <br>
+                
+                <div class="admin-disclaimer">
+                    <h3>⚠️ Important: Administrative Support Phase</h3>
+                    <p><strong>These contributions currently support FPC's operational costs, NOT game project funding.</strong></p>
+                    <p>At this stage, we're building the infrastructure needed to support indie developers. Your contributions help cover:</p>
+                    <ul>
+                        <li>Microsoft 365 accounts for the FPC team</li>
+                        <li>Professional logo design and branding</li>
+                        <li>Web hosting and domain costs</li>
+                        <li>CPA and legal consultation fees</li>
+                        <li>Administrative software and tools</li>
+                    </ul>
+                    <p>When we launch game project funding, we will clearly communicate this transition and provide separate contribution options specifically for developer support. <strong>Contributions are not tax deductible. Because these contributions cover our operating costs, they are also non-refundable. Your support, if recurring, can be canceled at any time. Thank you for supporting FPC!</strong></p>
+                    <p>For a transparent breakdown in current operational costs, please see the <a href="https://fairplaycollective-my.sharepoint.com/:x:/g/personal/dylan_fairplaycollective_org/ERPSlj6ZGINJi87etKXjps0BbN3J6Y1XrspjL05fbqShHg?e=t78w8j&nav=MTVfezAwMDAwMDAwLTAwMDEtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMH0" style = "color:red">FPC Expenses sheet</a>.</p>
+
+                </div>
+
+                <!-- One-Time Custom Contribution -->
+                <div class="contribution-card single-card">
+                    <div class="contribution-header">
+                        <h3>Aid - Custom Amount</h3>
+                    </div>
+                    <p>Support FPC's administrative setup with any amount that works for you. Every contribution helps us build the foundation.</p>
+                    <button class="select-tier-btn" onclick="window.location.href='https://buy.stripe.com/8x2aEWcuBdLN4N88rC5c404'">
+                        Choose Your Amount
+                    </button>
+                </div>
+
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary-purple);">Monthly Support Tiers</h3>
+                <div class ="tiers-grid">
+                <!-- Monthly Tiers - Simple Stack -->
+                <div class="contribution-card1">
+                    <div class="contribution-header">
+                        <span class="tier-name">Assist</span>
+                        <span class="tier-price">$5/month</span>
+                    </div>
+                    <p>Help cover basic monthly operational costs.</p>
+                    <button class="select-tier-btn" onclick="window.location.href='https://buy.stripe.com/28E7sK9ip379cfAbDO5c400'">
+                        Select Assist
+                    </button>
+                </div>
+
+                <div class="contribution-card2">
+                    <div class="contribution-header">
+                        <span class="tier-name">Support</span>
+                        <span class="tier-price">$15/month</span>
+                    </div>
+                    <p>Contribute to professional services and infrastructure setup.</p>
+                    <button class="select-tier-btn" onclick="window.location.href='https://buy.stripe.com/4gMeVc66dbDF5RcazK5c401'">
+                        Select Support
+                    </button>
+                </div>
+
+                <div class="contribution-card3">
+                    <div class="contribution-header">
+                        <span class="tier-name">Sustain</span>
+                        <span class="tier-price">$25/month</span>
+                    </div>
+                    <p>Sustain ongoing operational expenses as we grow.</p>
+                    <button class="select-tier-btn" onclick="window.location.href='https://buy.stripe.com/cNicN4gKR379gvQ5fq5c402'">
+                        Select Sustain
+                    </button>
+                </div>
+
+                <div class="contribution-card4">
+                    <div class="contribution-header">
+                        <span class="tier-name">Nurture</span>
+                        <span class="tier-price">$50/month</span>
+                    </div>
+                    <p>Provide substantial support for FPC's foundational phase.</p>
+                    <button class="select-tier-btn" onclick="window.location.href='https://buy.stripe.com/aFadR866dazB4N823e5c403'">
+                        Select Nurture
+                    </button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
             <!-- Current Focus Section -->
             <div class="content-block" id="focus-section">
                 <h2 class="linerPink">
@@ -168,7 +251,7 @@
         </section>
     </main>
 
-    <!-- Hidden content sections for navigation (FAQ, About, Contact) -->
+    <!-- Hidden content sections for navigation -->
     <div id="faq-content" class="content-section">
         <h2>Frequently Asked Questions</h2>
         <div class="faq-item">
@@ -201,11 +284,67 @@
         <p>Reach out to us and join the conversation about building a more equitable future for indie game development.</p>
     </div>
 
-    <!-- JavaScript for page functionality -->
+    <!-- JavaScript -->
     <script>
-        // Function to show/hide different page sections
+// Contributors Modal
+const contributorsModal = document.getElementById('contributorsModal');
+const contributorsBtn = document.getElementById('contributorsBtn');
+const closeModal = document.getElementById('closeModal');
+
+contributorsBtn.addEventListener('click', function() {
+    contributorsModal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+});
+
+closeModal.addEventListener('click', function() {
+    contributorsModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+// Close modal when clicking outside of it
+window.addEventListener('click', function(event) {
+    if (event.target === contributorsModal) {
+        contributorsModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && contributorsModal.style.display === 'block') {
+        contributorsModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
+
+        // Smooth scroll to contribution section and auto-expand
+        document.getElementById('contributeBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const contributeSection = document.getElementById('contribute-section');
+            const dropdown = document.getElementById('contributionDropdown');
+            
+            // Scroll to section
+            contributeSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Auto-expand dropdown after scroll
+            setTimeout(function() {
+                dropdown.classList.add('active');
+                document.getElementById('toggleContribute').textContent = 'Hide Contribution Options';
+            }, 800);
+        });
+
+        // Toggle contribution dropdown
+        document.getElementById('toggleContribute').addEventListener('click', function() {
+            const dropdown = document.getElementById('contributionDropdown');
+            dropdown.classList.toggle('active');
+            this.textContent = dropdown.classList.contains('active') 
+                ? 'Hide Contribution Options' 
+                : 'Support FPC Operations';
+        });
+
+        // Section navigation
         function showSection(sectionName) {
-            // Hide all content sections
             const sections = document.querySelectorAll('.content-section');
             const hero = document.querySelector('.hero');
             const scrollIndicator = document.querySelector('.scroll-indicator');
@@ -213,34 +352,27 @@
             sections.forEach(section => section.classList.remove('active'));
             
             if (sectionName === 'home') {
-                // Show home/hero section
                 hero.style.display = 'block';
                 if (scrollIndicator) scrollIndicator.style.display = 'block';
             } else {
-                // Hide hero and show requested section
                 hero.style.display = 'none';
                 if (scrollIndicator) scrollIndicator.style.display = 'none';
                 const targetSection = document.getElementById(sectionName + '-content');
                 if (targetSection) targetSection.classList.add('active');
             }
             
-            // Smooth scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Handle logo click to return home
+        // Logo click handler
         document.querySelector('.logo').addEventListener('click', function(e) {
             e.preventDefault();
             showSection('home');
         });
 
-        // Placeholder functionality for search and settings icons
+        // Search icon placeholder
         document.querySelector('.search-icon').addEventListener('click', function() {
             alert('Search functionality coming soon!');
-        });
-
-        document.querySelector('.settings-icon').addEventListener('click', function() {
-            alert('Settings panel coming soon!');
         });
     </script>
 </body>

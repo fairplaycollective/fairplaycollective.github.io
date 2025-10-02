@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fair Play Collective - Contribution</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1e2a3a 50%, #2a3b4d 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .contribution-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .contribution-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contribution-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, rgba(208, 127, 224, 1), rgba(240, 62, 130, 1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contribution-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .contribute-btn {
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(208, 127, 224, 1), rgba(240, 62, 130, 1));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .contribute-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(240, 62, 130, 0.4);
+        }
+
+        .contribute-btn:active {
+            transform: translateY(0);
+        }
+
+        .contribution-options {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .contribution-options.active {
+            max-height: 3000;
+        }
+
+        .disclaimer {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 4px solid rgba(240, 62, 130, 1);
+        }
+
+        .disclaimer h3 {
+            color: rgba(240, 62, 130, 1);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .disclaimer p {
+            line-height: 1.6;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .tiers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tier-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tier-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(208, 127, 224, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .tier-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .tier-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: rgba(208, 127, 224, 1);
+        }
+
+        .tier-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: rgba(240, 62, 130, 1);
+        }
+
+        .tier-description {
+            opacity: 0.85;
+            line-height: 1.5;
+            margin-bottom: 0;
+            flex-grow: 1;
+        }
+
+        .tier-benefits {
+            list-style: none;
+            padding: 0;
+            display: none;
+        }
+
+        .select-tier-btn {
+            width: 100%;
+            padding: 0.9rem;
+            background: transparent;
+            color: rgba(208, 127, 224, 1);
+            border: 2px solid rgba(208, 127, 224, 1);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .select-tier-btn:hover {
+            background: rgba(208, 127, 224, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .custom-amount {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .custom-amount h3 {
+            color: rgba(240, 62, 130, 1);
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+
+        .custom-amount p {
+            opacity: 0.85;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="contribution-container">
+        <div class="contribution-header">
+            <h1>Support FPC Operations</h1>
+            <p>Help us build the infrastructure to support indie developers</p>
+        </div>
+
+        <button class="contribute-btn" id="toggleOptions">
+            Choose Your Contribution Level
+        </button>
+
+        <div class="contribution-options" id="contributionOptions">
+            <div class="disclaimer">
+                <h3>⚠️ Important: Administrative Support Phase</h3>
+                <p><strong>These contributions currently support FPC's operational costs, NOT game project funding.</strong></p>
+                <p>At this stage, we're building the infrastructure needed to support indie developers. Your contributions help cover:</p>
+                <ul style="margin-top: 0.75rem; padding-left: 1.5rem; line-height: 1.8;">
+                    <li>Microsoft 365 accounts for the FPC team</li>
+                    <li>Professional logo design and branding</li>
+                    <li>Web hosting and domain costs</li>
+                    <li>CPA and legal consultation fees</li>
+                    <li>Administrative software and tools</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>When we launch game project funding, we will clearly communicate this transition and provide separate contribution options specifically for developer support.</strong></p>
+            </div>
+
+            <!-- Aid Tier (Custom Amount) -->
+            <div class="custom-amount">
+                <h3 class="tier-name">Aid - Custom Amount</h3>
+                <p>Support FPC's administrative setup with any amount that works for you. Every contribution helps us build the foundation.</p>
+                <button class="select-tier-btn" onclick="checkout('buy_btn_1SCoovBFJBZx4kNgHrTwiN61')">
+                    Choose Your Amount
+                </button>
+            </div>
+
+            <!-- Monthly Tiers Grid -->
+            <div class="tiers-grid">
+                <!-- Assist Tier -->
+                <div class="tier-card">
+                    <div class="tier-header">
+                        <span class="tier-name">Assist</span>
+                        <span class="tier-price">$5/month</span>
+                    </div>
+                    <p class="tier-description">Help cover basic monthly operational costs.</p>
+                    <button class="select-tier-btn" onclick="checkout('ASSIST_PRICE_ID')">
+                        Select Assist
+                    </button>
+                </div>
+
+                <!-- Support Tier -->
+                <div class="tier-card">
+                    <div class="tier-header">
+                        <span class="tier-name">Support</span>
+                        <span class="tier-price">$15/month</span>
+                    </div>
+                    <p class="tier-description">Contribute to professional services and infrastructure setup.</p>
+                    <button class="select-tier-btn" onclick="checkout('SUPPORT_PRICE_ID')">
+                        Select Support
+                    </button>
+                </div>
+
+                <!-- Sustain Tier -->
+                <div class="tier-card">
+                    <div class="tier-header">
+                        <span class="tier-name">Sustain</span>
+                        <span class="tier-price">$25/month</span>
+                    </div>
+                    <p class="tier-description">Sustain ongoing operational expenses as we grow.</p>
+                    <button class="select-tier-btn" onclick="checkout('SUSTAIN_PRICE_ID')">
+                        Select Sustain
+                    </button>
+                </div>
+
+                <!-- Nurture Tier -->
+                <div class="tier-card">
+                    <div class="tier-header">
+                        <span class="tier-name">Nurture</span>
+                        <span class="tier-price">$50/month</span>
+                    </div>
+                    <p class="tier-description">Provide substantial support for FPC's foundational phase.</p>
+                    <button class="select-tier-btn" onclick="checkout('NURTURE_PRICE_ID')">
+                        Select Nurture
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const stripe = Stripe('pk_live_51SCkvPBFJBZx4kNg395R1lxiIY6dePDHMQ1Z4vSxdF58n1kE1g4q8ZqTMvG6tSF2IOyUKXAroNYtjOzvL5qMhhb00oSKku9jY');
+
+        // Toggle options dropdown
+        document.getElementById('toggleOptions').addEventListener('click', function() {
+            const options = document.getElementById('contributionOptions');
+            options.classList.toggle('active');
+            this.textContent = options.classList.contains('active') 
+                ? 'Hide Contribution Levels' 
+                : 'Choose Your Contribution Level';
+        });
+
+        // Checkout function
+        function checkout(buyButtonId) {
+            // For the custom amount (Aid), redirect to Stripe Checkout with the buy button ID
+            // For monthly subscriptions, you'll need to get the correct Price IDs from your Stripe dashboard
+            window.location.href = `https://buy.stripe.com/${buyButtonId}`;
+        }
+    </script>
+</body>
+</html>
