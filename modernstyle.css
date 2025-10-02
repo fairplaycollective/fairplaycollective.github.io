@@ -329,6 +329,155 @@ main {
     position: center;
 }
 
+<<<<<<< HEAD
+=======
+
+/* Contribution Section Styles
+   ========================================================================== */
+.contribution-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    transition: all 0.3s ease;
+    grid-area: cc1;
+}
+   .contribution-card1 {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    transition: all 0.3s ease;
+    grid-area: cc1;
+   
+}
+.contribution-card2 {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    transition: all 0.3s ease;
+    grid-area: cc2;
+   
+}
+.contribution-card3 {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    transition: all 0.3s ease;
+    grid-area: cc3;
+   
+}
+.contribution-card4 {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    transition: all 0.3s ease;
+    grid-area: cc4;
+   
+}
+.contribution-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(208, 127, 224, 0.5);
+    transform: translateY(-2px);
+}
+
+.contribution-card.single-card {
+    text-align: center;
+    margin-bottom: 2rem;
+    
+}
+
+.contribution-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.contribution-card h3 {
+    color: rgba(240, 62, 130, 1);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+}
+
+.contribution-card p {
+    opacity: 0.85;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.tier-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgba(208, 127, 224, 1);
+}
+
+.tier-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgba(240, 62, 130, 1);
+   white-space: normal;        
+  overflow-wrap: anywhere;    
+
+.admin-disclaimer {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    border-left: 4px solid rgba(240, 62, 130, 1);
+}
+
+.admin-disclaimer h3 {
+    color: rgba(240, 62, 130, 1);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.admin-disclaimer p {
+    line-height: 1.6;
+    opacity: 0.9;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+}
+
+.admin-disclaimer ul {
+    margin-top: 0.75rem;
+    padding-left: 1.5rem;
+    line-height: 1.8;
+}
+
+.admin-disclaimer strong {
+    color: rgba(240, 62, 130, 1);
+}
+
+.select-tier-btn {
+    width: 100%;
+    padding: 0.9rem;
+    background: transparent;
+    color: rgba(208, 127, 224, 1);
+    border: 2px solid rgba(208, 127, 224, 1);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+}
+
+.select-tier-btn:hover {
+    background: rgba(208, 127, 224, 0.1);
+    transform: translateY(-1px);
+}
+
+>>>>>>> 784281b9cd43c9cb26a67b06da54fc55d5a9b7a7
 /* Section Headers with Decorative Lines
    ========================================================================== */
 .linerPurp {
@@ -1086,6 +1235,7 @@ textarea:focus {
         background: rgba(255, 255, 255, 0.1);
     }
 }
+<<<<<<< HEAD
 
 
 /* Contribution Section Styles
@@ -1245,6 +1395,8 @@ textarea:focus {
     min-width: 0; 
     width:100%; }
 
+=======
+>>>>>>> 784281b9cd43c9cb26a67b06da54fc55d5a9b7a7
 
 /* Update the heart icon styling - REPLACE your existing .search-icon, .settings-icon section */
 .search-icon, 
@@ -1380,4 +1532,11 @@ textarea:focus {
 
 /* ============================================================================
    END OF STYLESHEET
+<<<<<<< HEAD
    ============================================================================ */
+=======
+
+   ============================================================================ */
+
+
+>>>>>>> 784281b9cd43c9cb26a67b06da54fc55d5a9b7a7
