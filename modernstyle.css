@@ -173,8 +173,8 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: max(1rem, 2vw); 
+    margin-right: max(1rem, 2vw);
 }
 
 .hero {
@@ -189,16 +189,23 @@ main {
 }
 
 .main-logo {
-    width: 600px;
-    height: 300px;
-    margin: auto;
-    margin-top: 5em;
-    margin-bottom: 1em;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+  width: clamp(180px, 80vw, 600px);  /* scales down on small screens */
+  aspect-ratio: 2 / 1;               /* keeps shape without hard height */
+  height: auto;
+  margin: 5em auto 1em;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Make the image scale with its container */
+.main-logo img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
 }
 
 .main-logo::before {
@@ -293,7 +300,7 @@ main {
    ========================================================================== */
 .content-block {
     background: rgba(0, 0, 0, 0.1);
-    min-width: 800px;
+    min-width: 0;
     margin-top: 2em;
     padding: 1em;
     padding-bottom: 0.5em;
@@ -306,7 +313,7 @@ main {
 /* Legacy support for existing IDs */
 #home-text-element-light {
     background: cover;
-    min-width: 800px;
+    min-width: 0;
     padding: 1em;
     padding-bottom: 0.5em;
     border-radius: 1em;
@@ -318,7 +325,7 @@ main {
 .home-text-element-dark {
     width: 100%;
     background: rgba(0, 0, 0, 0.3);
-    min-width: 800px;
+    min-width: 0;
     margin-top: 2em;
     padding: 1em;
     padding-bottom: 0.5em;
@@ -1064,7 +1071,7 @@ main {
 
     .content-block,
     #home-text-element-light {
-        min-width: auto;
+        min-width: 0;
         margin-left: 0;
         margin-right: 0;
     }
@@ -1377,6 +1384,24 @@ textarea:focus {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* Force newsletter iframe to be fluid on tiny screens */
+.beehiiv-embed,
+iframe[data-test-id="beehiiv-embed"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto;
+  min-width: 0;           /* allow it to shrink inside flex/flow */
+  display: block;
+}
+
+/* Good global safety net for media */
+img, iframe, video, svg {
+  max-width: 100%;
+  height: auto;
+}
+
 
 /* ============================================================================
    END OF STYLESHEET
