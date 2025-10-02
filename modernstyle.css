@@ -480,16 +480,7 @@ main {
     background: rgba(208, 127, 224, 0.1);
     transform: translateY(-1px);
 }
-   
-.tiers-grid{ 
-    display: grid; 
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-areas: "cc1 cc2" "cc3 cc4" ; 
-    gap: 1.25rem; 
-    margin: 1rem 0; 
-    min-width: 0; 
-    width:100%; }
-   
+
 /* Section Headers with Decorative Lines
    ========================================================================== */
 .linerPurp {
@@ -1409,4 +1400,5 @@ img, iframe, video, svg {
    END OF STYLESHEET
 
    ============================================================================ */
+
 
