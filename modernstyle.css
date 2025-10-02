@@ -1207,16 +1207,6 @@ textarea:focus {
         background: rgba(255, 255, 255, 0.1);
     }
 }
-.tiers-grid{
-    display: grid; 
-    grid-template-columns: repeat(2, 1fr); 
-    grid-template-areas: 
-    "cc1 cc2"
-    "cc3 cc4"
-    ;
-    gap: 1.25rem;
-    margin: 1rem 0;
-}
 
 /* Update the heart icon styling - REPLACE your existing .search-icon, .settings-icon section */
 .search-icon, 
@@ -1407,4 +1397,5 @@ img, iframe, video, svg {
 
 /* ============================================================================
    END OF STYLESHEET
+
    ============================================================================ */
