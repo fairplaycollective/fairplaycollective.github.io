@@ -1,0 +1,222 @@
+/* ============================================================================
+ *  Fair Play Collective - V2.0 "System Dashboard" Layout
+ *  Colors: #0D0005 (Black), #F03D82 (Pink), #5929A6 (Purple), #FFD921 (Yellow)
+ *  Fonts: Space Grotesk (Display), DM Mono (Technical)
+ *  ============================================================================ */
+
+:root {
+    --fpc-black: #0D0005;
+    --fpc-pink: #F03D82;
+    --fpc-purple: #5929A6;
+    --fpc-yellow: #FFD921;
+    --fpc-white: #FAFAFF;
+    --font-head: 'Space Grotesk', sans-serif;
+    --font-tech: 'DM Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--fpc-black);
+    color: var(--fpc-white);
+    font-family: var(--font-tech); /* Default to mono for technical feel */
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* --- GLITCH EFFECT --- */
+.glitch {
+    position: relative;
+    font-family: var(--font-head);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+}
+
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--fpc-black);
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -1px 0 var(--fpc-pink);
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -1px 0 var(--fpc-purple);
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(14px, 9999px, 127px, 0); }
+    20% { clip: rect(81px, 9999px, 34px, 0); }
+    40% { clip: rect(20px, 9999px, 128px, 0); }
+    60% { clip: rect(122px, 9999px, 63px, 0); }
+    80% { clip: rect(52px, 9999px, 63px, 0); }
+    100% { clip: rect(109px, 9999px, 78px, 0); }
+}
+
+@keyframes glitch-anim-2 {
+    0% { clip: rect(65px, 9999px, 100px, 0); }
+    20% { clip: rect(27px, 9999px, 35px, 0); }
+    40% { clip: rect(12px, 9999px, 20px, 0); }
+    60% { clip: rect(106px, 9999px, 62px, 0); }
+    80% { clip: rect(138px, 9999px, 18px, 0); }
+    100% { clip: rect(2px, 9999px, 55px, 0); }
+}
+
+/* --- LAYOUT UTILITIES --- */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+header {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(89, 41, 166, 0.3);
+    position: sticky;
+    top: 0;
+    background: rgba(13, 0, 5, 0.95);
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--fpc-pink); text-decoration: none; font-family: var(--font-head); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: var(--fpc-white); text-decoration: none; text-transform: uppercase; font-size: 0.9rem; }
+.nav-links a:hover { color: var(--fpc-yellow); text-decoration: underline; }
+
+/* --- HERO DASHBOARD --- */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Split layout: Big text left, Status right */
+    gap: 2rem;
+    padding: 4rem 0;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    line-height: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    max-width: 90%;
+    color: rgba(250, 250, 255, 0.8);
+}
+
+/* The "System Status" Box */
+.status-terminal {
+    background: rgba(255, 217, 33, 0.05);
+    border: 1px solid var(--fpc-yellow);
+    padding: 1.5rem;
+    font-family: var(--font-tech);
+    position: relative;
+}
+
+.status-terminal::before {
+    content: "/// SYSTEM_MSG_LOG";
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background: var(--fpc-black);
+    padding: 0 5px;
+    color: var(--fpc-yellow);
+    font-size: 0.8rem;
+}
+
+.status-item {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.status-label { color: var(--fpc-yellow); font-weight: bold; text-transform: uppercase; display: block; }
+
+/* --- INFO GRID (Restoring Text) --- */
+.info-section { padding: 4rem 0; }
+
+.section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.section-header h2 { font-family: var(--font-head); font-size: 2.5rem; color: var(--fpc-white); }
+.section-mono { color: var(--fpc-purple); font-size: 1rem; }
+
+.data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.data-card {
+    border: 1px solid var(--fpc-purple);
+    padding: 2rem;
+    transition: 0.3s;
+    background: rgba(89, 41, 166, 0.05);
+}
+
+.data-card:hover {
+    border-color: var(--fpc-pink);
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 0px var(--fpc-pink);
+}
+
+.card-icon { font-size: 1.5rem; margin-bottom: 1rem; display: block; color: var(--fpc-pink); }
+.data-card h3 { font-family: var(--font-head); font-size: 1.5rem; margin-bottom: 1rem; }
+.data-card p { opacity: 0.8; font-size: 0.95rem; margin-bottom: 1rem; }
+
+/* --- INTERACTION (Buttons) --- */
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.tier-btn {
+    border: 1px solid var(--fpc-white);
+    background: transparent;
+    padding: 1.5rem 1rem;
+    color: var(--fpc-white);
+    text-align: center;
+    text-decoration: none;
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.tier-btn:hover {
+    background: var(--fpc-pink);
+    border-color: var(--fpc-pink);
+    color: var(--fpc-black);
+}
+
+.tier-btn strong { font-size: 1.2rem; font-family: var(--font-head); }
+.tier-btn span { font-size: 0.85rem; opacity: 0.7; }
+
+/* Mobile Response */
+@media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .action-grid { grid-template-columns: 1fr 1fr; }
+    .hero-text h1 { font-size: 3rem; }
+}

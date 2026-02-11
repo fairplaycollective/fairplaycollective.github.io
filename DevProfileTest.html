@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Chen - Fair Play Collective</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --fpc-black: #0D0005;
+            --fpc-pink: #F03D82;
+            --fpc-purple: #5929A6;
+            --fpc-yellow: #FFD921;
+            --fpc-white: #FAFAFF;
+            --font-head: 'Space Grotesk', sans-serif;
+            --font-tech: 'DM Mono', monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--fpc-black);
+            color: var(--fpc-white);
+            font-family: var(--font-tech);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* HEADER */
+        header {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(89, 41, 166, 0.3);
+            position: sticky;
+            top: 0;
+            background: rgba(13, 0, 5, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--fpc-pink);
+            text-decoration: none;
+            font-family: var(--font-head);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--fpc-white);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--fpc-yellow);
+        }
+
+        /* PROFILE HERO */
+        .profile-hero {
+            display: grid;
+            grid-template-columns: 200px 1fr 300px;
+            gap: 3rem;
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .profile-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 8px;
+            border: 2px solid var(--fpc-purple);
+            background: linear-gradient(135deg, rgba(89, 41, 166, 0.2), rgba(240, 61, 130, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            font-weight: 300;
+            color: var(--fpc-pink);
+            font-family: var(--font-tech);
+        }
+
+        .profile-header h1 {
+            font-family: var(--font-head);
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: var(--fpc-pink);
+        }
+
+        .profile-pronouns {
+            color: var(--fpc-purple);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .profile-bio {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+            opacity: 0.9;
+        }
+
+        .profile-tags {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            padding: 0.4rem 1rem;
+            border: 1px solid var(--fpc-purple);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            background: rgba(89, 41, 166, 0.1);
+        }
+
+        .profile-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .profile-links a {
+            color: var(--fpc-yellow);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+
+        .profile-links a:hover {
+            color: var(--fpc-pink);
+        }
+
+        .link-icon {
+            color: var(--fpc-pink);
+            margin-right: 0.3rem;
+        }
+
+        /* SOCIAL ACTIONS SIDEBAR */
+        .social-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .action-btn {
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--fpc-pink);
+            background: transparent;
+            color: var(--fpc-pink);
+            font-family: var(--font-tech);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.2s;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+        }
+
+        .action-btn:hover {
+            background: var(--fpc-pink);
+            color: var(--fpc-black);
+        }
+
+        .action-btn.following {
+            border-color: var(--fpc-purple);
+            color: var(--fpc-purple);
+            background: rgba(89, 41, 166, 0.1);
+        }
+
+        .action-btn.following:hover {
+            background: var(--fpc-purple);
+            color: var(--fpc-white);
+        }
+
+        .connection-note {
+            padding: 1.5rem;
+            background: rgba(255, 217, 33, 0.05);
+            border: 1px solid rgba(255, 217, 33, 0.2);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .connection-note::before {
+            content: "[~] ";
+            color: var(--fpc-yellow);
+            font-weight: bold;
+        }
+
+        /* QUALITATIVE STATS BAR */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-card {
+            padding: 1.5rem;
+            background: rgba(255, 217, 33, 0.05);
+            border: 1px solid rgba(255, 217, 33, 0.2);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: 0.5rem;
+            display: block;
+            color: var(--fpc-yellow);
+        }
+
+        .stat-label::before {
+            content: "> ";
+            color: var(--fpc-yellow);
+        }
+
+        .stat-value {
+            font-family: var(--font-head);
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+
+        /* MAIN CONTENT LAYOUT */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        /* ACTIVITY FEED SIDEBAR */
+        .activity-sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-section h3 {
+            font-family: var(--font-head);
+            font-size: 1.3rem;
+            color: var(--fpc-pink);
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-section h3::before {
+            content: "// ";
+            opacity: 0.5;
+        }
+
+        .activity-item {
+            padding: 1rem;
+            background: rgba(89, 41, 166, 0.05);
+            border-left: 2px solid var(--fpc-purple);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .activity-time {
+            color: var(--fpc-yellow);
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .activity-time::before {
+            content: "[";
+            opacity: 0.5;
+        }
+
+        .activity-time::after {
+            content: "]";
+            opacity: 0.5;
+        }
+
+        .activity-text {
+            opacity: 0.85;
+            line-height: 1.5;
+        }
+
+        .activity-text::before {
+            content: "> ";
+            color: var(--fpc-purple);
+            opacity: 0.6;
+        }
+
+        /* SUPPORT WIDGET */
+        .support-widget {
+            padding: 1.5rem;
+            background: rgba(240, 61, 130, 0.1);
+            border: 1px solid var(--fpc-pink);
+            margin-bottom: 2rem;
+        }
+
+        .support-widget h4 {
+            font-family: var(--font-head);
+            color: var(--fpc-pink);
+            margin-bottom: 0.75rem;
+        }
+
+        .support-widget h4::before {
+            content: "$ ";
+            opacity: 0.7;
+        }
+
+        .support-widget p {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            margin-bottom: 1rem;
+        }
+
+        .support-btn {
+            width: 100%;
+            padding: 0.9rem;
+            background: var(--fpc-pink);
+            color: var(--fpc-black);
+            border: none;
+            font-family: var(--font-tech);
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .support-btn:hover {
+            background: var(--fpc-yellow);
+        }
+
+        .support-btn::before {
+            content: "> ";
+        }
+
+        /* PROJECTS SECTION */
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-head);
+            font-size: 2rem;
+            color: var(--fpc-white);
+        }
+
+        .section-mono {
+            color: var(--fpc-purple);
+            font-size: 0.9rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .project-card {
+            border: 1px solid var(--fpc-purple);
+            background: rgba(89, 41, 166, 0.05);
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--fpc-pink);
+            transform: translateY(-5px);
+            box-shadow: 4px 4px 0px var(--fpc-pink);
+        }
+
+        .project-main {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+        }
+
+        .project-thumbnail {
+            width: 250px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(89, 41, 166, 0.3), rgba(240, 61, 130, 0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--fpc-pink);
+            font-family: var(--font-tech);
+            font-weight: 300;
+        }
+
+        .project-info {
+            padding: 1.5rem 1.5rem 1.5rem 0;
+        }
+
+        .project-info h3 {
+            font-family: var(--font-head);
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-status {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .status-badge {
+            font-size: 0.75rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+
+        .status-badge::before {
+            content: "[";
+            opacity: 0.5;
+        }
+
+        .status-badge::after {
+            content: "]";
+            opacity: 0.5;
+        }
+
+        .status-badge.active {
+            background: rgba(255, 217, 33, 0.2);
+            color: var(--fpc-yellow);
+            border: 1px solid var(--fpc-yellow);
+        }
+
+        .status-badge.seeking {
+            background: rgba(240, 61, 130, 0.2);
+            color: var(--fpc-pink);
+            border: 1px solid var(--fpc-pink);
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        .project-meta::before {
+            content: ":: ";
+            color: var(--fpc-purple);
+        }
+
+        /* PROJECT SOCIAL ACTIONS */
+        .project-social {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-action {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        .social-action:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--fpc-pink);
+        }
+
+        .social-action.active {
+            color: var(--fpc-yellow);
+            background: rgba(255, 217, 33, 0.1);
+        }
+
+        .social-icon {
+            font-weight: bold;
+            color: var(--fpc-pink);
+        }
+
+        .social-action.active .social-icon {
+            color: var(--fpc-yellow);
+        }
+
+        /* CONVERSATION INDICATOR */
+        .conversation-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            background: rgba(89, 41, 166, 0.1);
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .conversation-indicator:hover {
+            background: rgba(89, 41, 166, 0.2);
+        }
+
+        .conversation-indicator .social-icon {
+            color: var(--fpc-purple);
+        }
+
+        /* COMMENTS SECTION */
+        .comments-section {
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comments-header {
+            font-family: var(--font-head);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--fpc-purple);
+        }
+
+        .comments-header::before {
+            content: "// ";
+            opacity: 0.5;
+        }
+
+        .comment {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .comment:last-child {
+            border-bottom: none;
+        }
+
+        .comment-author {
+            font-weight: 600;
+            color: var(--fpc-pink);
+            margin-bottom: 0.3rem;
+        }
+
+        .comment-author::before {
+            content: "@";
+            opacity: 0.6;
+        }
+
+        .comment-time {
+            font-size: 0.8rem;
+            opacity: 0.5;
+            margin-left: 0.5rem;
+        }
+
+        .comment-time::before {
+            content: "[";
+        }
+
+        .comment-time::after {
+            content: "]";
+        }
+
+        .comment-text {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            line-height: 1.5;
+        }
+
+        .comment-text::before {
+            content: "> ";
+            color: var(--fpc-purple);
+            opacity: 0.3;
+        }
+
+        .comment-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--fpc-white);
+            font-family: var(--font-tech);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            resize: vertical;
+        }
+
+        .comment-input:focus {
+            outline: none;
+            border-color: var(--fpc-purple);
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem 0;
+            text-align: center;
+            opacity: 0.6;
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 1200px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .activity-sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .profile-hero {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .profile-avatar {
+                width: 150px;
+                height: 150px;
+                margin: 0 auto;
+            }
+
+            .social-actions {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+
+            .project-main {
+                grid-template-columns: 1fr;
+            }
+
+            .project-thumbnail {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">FPC_v1.2</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Developers</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- PROFILE HERO -->
+            <section class="profile-hero">
+                <div class="profile-avatar">@</div>
+
+                <div class="profile-header">
+                    <h1>Alex Chen</h1>
+                    <div class="profile-pronouns">they/them · Member since Jan 2025</div>
+
+                    <p class="profile-bio">
+                        Narrative designer & solo dev focused on cozy horror and queer storytelling.
+                        Currently working on atmospheric puzzle games that make you feel something.
+                    </p>
+
+                    <div class="profile-tags">
+                        <span class="tag">Narrative Design</span>
+                        <span class="tag">Solo Dev</span>
+                        <span class="tag">Unity</span>
+                        <span class="tag">Pixel Art</span>
+                        <span class="tag">Horror</span>
+                    </div>
+
+                    <div class="profile-links">
+                        <a href="#"><span class="link-icon">~</span>alexchen.dev</a>
+                        <a href="#"><span class="link-icon">@</span>alexchen_dev</a>
+                        <a href="#"><span class="link-icon">#</span>itch.io/alexchen</a>
+                        <a href="#"><span class="link-icon">></span>Contact</a>
+                    </div>
+                </div>
+
+                <!-- SOCIAL ACTIONS -->
+                <div class="social-actions">
+                    <button class="action-btn following">✓ Following</button>
+                    <button class="action-btn">> Send Message</button>
+
+                    <div class="connection-note">
+                        You and Alex share connections through the Unity Horror tag community.
+                    </div>
+                </div>
+            </section>
+
+            <!-- QUALITATIVE STATS -->
+            <section class="stats-bar">
+                <div class="stat-card">
+                    <span class="stat-label">Current Focus</span>
+                    <span class="stat-value">3 projects in active development</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Experience</span>
+                    <span class="stat-value">5 years in indie development</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Portfolio</span>
+                    <span class="stat-value">7 completed games released</span>
+                </div>
+            </section>
+
+            <!-- MAIN CONTENT WITH SIDEBAR -->
+            <div class="content-wrapper">
+                <!-- PROJECTS MAIN COLUMN -->
+                <div class="projects-main">
+                    <div class="section-header">
+                        <div>
+                            <h2>ACTIVE PROJECTS</h2>
+                            <span class="section-mono">// In Development</span>
+                        </div>
+                    </div>
+
+                    <div class="projects-grid">
+                        <!-- Project 1 -->
+                        <div class="project-card">
+                            <div class="project-main">
+                                <div class="project-thumbnail">◊</div>
+                                <div class="project-info">
+                                    <h3>The Last Lighthouse</h3>
+                                    <div class="project-status">
+                                        <span class="status-badge active">In Progress</span>
+                                        <span class="status-badge seeking">Seeking Funding</span>
+                                    </div>
+                                    <p class="project-desc">
+                                        A narrative puzzle game about isolation, grief, and the ghosts we carry.
+                                        Explore an abandoned lighthouse and piece together what happened.
+                                    </p>
+                                    <div class="project-meta">
+                                        <span>Unity · Pixel Art · Updated 3 days ago</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project Social Actions -->
+                            <div class="project-social">
+                                <div class="social-action active">
+                                    <span class="social-icon">★</span>
+                                    <span>You gave kudos</span>
+                                </div>
+                                <div class="conversation-indicator">
+                                    <span class="social-icon">#</span>
+                                    <span>Active conversation</span>
+                                </div>
+                                <div class="social-action active">
+                                    <span class="social-icon">◉</span>
+                                    <span>You're watching</span>
+                                </div>
+                                <div class="social-action">
+                                    <span class="social-icon">→</span>
+                                    <span>Share</span>
+                                </div>
+                            </div>
+
+                            <!-- Comments Section -->
+                            <div class="comments-section">
+                                <div class="comments-header">Recent Conversation</div>
+
+                                <div class="comment">
+                                    <div class="comment-author">
+                                        Jamie Rodriguez
+                                        <span class="comment-time">2 days ago</span>
+                                    </div>
+                                    <p class="comment-text">
+                                        The atmosphere in your latest build is incredible! The sound design
+                                        really sells the isolation. Can't wait to see where this goes.
+                                    </p>
+                                </div>
+
+                                <div class="comment">
+                                    <div class="comment-author">
+                                        Alex Chen
+                                        <span class="comment-time">2 days ago</span>
+                                    </div>
+                                    <p class="comment-text">
+                                        Thanks Jamie! Sound design has been a huge focus. I'm working with
+                                        a composer now to create reactive audio for different emotional states.
+                                    </p>
+                                </div>
+
+                                <div class="comment">
+                                    <div class="comment-author">
+                                        Sam Park
+                                        <span class="comment-time">3 days ago</span>
+                                    </div>
+                                    <p class="comment-text">
+                                        This looks amazing. The pixel art style works so well with the
+                                        horror elements. The lighthouse setting is perfect for this kind of narrative.
+                                    </p>
+                                </div>
+
+                                <textarea class="comment-input" placeholder="> Join the conversation..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="project-card">
+                            <div class="project-main">
+                                <div class="project-thumbnail">☾</div>
+                                <div class="project-info">
+                                    <h3>Moonlit Diner</h3>
+                                    <div class="project-status">
+                                        <span class="status-badge active">Early Dev</span>
+                                    </div>
+                                    <p class="project-desc">
+                                        Run a diner for supernatural creatures. Learn their stories, serve comfort food,
+                                        and discover that monsters aren't so different from us.
+                                    </p>
+                                    <div class="project-meta">
+                                        <span>Godot · Visual Novel · Updated 1 week ago</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-social">
+                                <div class="social-action">
+                                    <span class="social-icon">★</span>
+                                    <span>Give kudos</span>
+                                </div>
+                                <div class="conversation-indicator">
+                                    <span class="social-icon">#</span>
+                                    <span>Ongoing discussion</span>
+                                </div>
+                                <div class="social-action">
+                                    <span class="social-icon">◉</span>
+                                    <span>Watch project</span>
+                                </div>
+                                <div class="social-action">
+                                    <span class="social-icon">→</span>
+                                    <span>Share</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="project-card">
+                            <div class="project-main">
+                                <div class="project-thumbnail">▓</div>
+                                <div class="project-info">
+                                    <h3>Echoes in the Static</h3>
+                                    <div class="project-status">
+                                        <span class="status-badge active">Prototyping</span>
+                                    </div>
+                                    <p class="project-desc">
+                                        A found footage horror game told through corrupted VHS tapes.
+                                        Piece together what happened to a small town that vanished overnight.
+                                    </p>
+                                    <div class="project-meta">
+                                        <span>Unity · Horror · Updated 2 weeks ago</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-social">
+                                <div class="social-action">
+                                    <span class="social-icon">★</span>
+                                    <span>Give kudos</span>
+                                </div>
+                                <div class="conversation-indicator">
+                                    <span class="social-icon">#</span>
+                                    <span>Join the conversation</span>
+                                </div>
+                                <div class="social-action">
+                                    <span class="social-icon">◉</span>
+                                    <span>Watch project</span>
+                                </div>
+                                <div class="social-action">
+                                    <span class="social-icon">→</span>
+                                    <span>Share</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACTIVITY SIDEBAR -->
+                <aside class="activity-sidebar">
+
+
+                    <!-- Recent Activity -->
+                    <div class="sidebar-section">
+                        <h3>Recent Activity</h3>
+
+                        <div class="activity-item">
+                            <span class="activity-time">3 days ago</span>
+                            <p class="activity-text">
+                                Published new devlog for <strong>The Last Lighthouse</strong>
+                            </p>
+                        </div>
+
+                        <div class="activity-item">
+                            <span class="activity-time">1 week ago</span>
+                            <p class="activity-text">
+                                Started following <strong>@indie_dev_jordan</strong>
+                            </p>
+                        </div>
+
+                        <div class="activity-item">
+                            <span class="activity-time">1 week ago</span>
+                            <p class="activity-text">
+                                Gave kudos to <strong>Pixel Dreams</strong>
+                            </p>
+                        </div>
+
+                        <div class="activity-item">
+                            <span class="activity-time">2 weeks ago</span>
+                            <p class="activity-text">
+                                Created new project: <strong>Moonlit Diner</strong>
+                            </p>
+                        </div>
+
+                        <div class="activity-item">
+                            <span class="activity-time">2 weeks ago</span>
+                            <p class="activity-text">
+                                Commented on <strong>Sara's</strong> project
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Watching Projects -->
+                    <div class="sidebar-section">
+                        <h3>Watching</h3>
+
+                        <div class="activity-item">
+                            <p class="activity-text">
+                                <strong>Neon Ruins</strong> by @maya_dev<br>
+                                <span style="font-size: 0.8rem; opacity: 0.6;">Updated 2 hours ago</span>
+                            </p>
+                        </div>
+
+                        <div class="activity-item">
+                            <p class="activity-text">
+                                <strong>Garden of Memories</strong> by @eli_creates<br>
+                                <span style="font-size: 0.8rem; opacity: 0.6;">Updated yesterday</span>
+                            </p>
+                        </div>
+
+                        <div class="activity-item">
+                            <p class="activity-text">
+                                <strong>Lost Signal</strong> by @dev_collective<br>
+                                <span style="font-size: 0.8rem; opacity: 0.6;">Updated 3 days ago</span>
+                            </p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Fair Play Collective · A social collective for indie game developers</p>
+        </div>
+    </footer>
+</body>
+</html>
