@@ -327,6 +327,34 @@ var devQuestions = [
   }
 ];
 
+// ── Contributors modal ────────────────────────────────────────────────────────
+function loadContributors() {
+  var list = document.getElementById('contribList');
+  if (!list) return;
+  fetch('contributors.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var names = data.contributors || [];
+      if (!names.length) {
+        list.innerHTML = '<li class="contrib-empty">// none listed yet</li>';
+        return;
+      }
+      list.innerHTML = names.map(function(name) {
+        return '<li class="contrib-item"><span class="contrib-item-icon">&lt;3&gt;</span>' + name + '</li>';
+      }).join('');
+    })
+    .catch(function() {
+      list.innerHTML = '<li class="contrib-empty">// could not load contributors</li>';
+    });
+}
+
+// Load contributors when the modal opens
+var origOpenModal = openModal;
+openModal = function(id) {
+  origOpenModal(id);
+  if (id === 'contributorsModal') loadContributors();
+};
+
 // ── Init ──────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function() {
   buildSurvey(consumerQuestions, 'consumerSurveyContainer', 'consumer');

@@ -1162,6 +1162,61 @@
 
     /* ── Focus ring ── */
     :focus-visible { outline: 2px solid var(--pink); outline-offset: 3px; }
+
+    /* ── Nav heart button ── */
+    .nav-heart {
+      background: none;
+      border: none;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--white-muted);
+      cursor: pointer;
+      padding: 0.25rem 0.4rem;
+      border-radius: var(--radius-sm);
+      transition: color 0.15s;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .nav-heart:hover { color: var(--pink); }
+
+    /* ── Contributors modal ── */
+    .contrib-intro {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--white-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .contrib-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .contrib-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 0.6rem 0.75rem;
+      background: var(--white-faint);
+      border: 1px solid var(--base-border);
+      border-radius: var(--radius-md);
+    }
+    .contrib-item-icon {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--pink);
+      flex-shrink: 0;
+    }
+    .contrib-empty {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      text-align: center;
+      padding: 1.5rem 0;
+    }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
@@ -1187,6 +1242,8 @@
       </div>
       <span class="nav-funding-label">0% of funding goal</span>
     </div>
+
+    <button class="nav-heart" onclick="openModal('contributorsModal')" aria-label="View contributors">&lt;3&gt;</button>
 
     <div class="nav-ctas">
       <button class="btn btn-secondary" onclick="openModal('devModal')">I'm a Dev</button>
@@ -1215,7 +1272,7 @@
 
     <p class="hero-sub">
       Community-funded. Creator-owned. No crunch.<br>
-      A mutual aid platform for indie developers and the people who believe in them.
+      An experiment in backer-funded, indie developer mutual aid.
     </p>
 
     <div class="hero-ctas">
@@ -1271,21 +1328,33 @@
         <div class="card hover accent-pink">
           <div class="pillar-ascii">>&lt;_&lt;</div>
           <span class="badge badge-pink">The Problem</span>
-          <p class="pillar-body">Mass layoffs after successful launches. Crunch on every project. Studios that close the moment funding dries up. The games industry is broken for the people who make it.</p>
+          <p class="pillar-body">You've all heard the stories of mass layoffs at your favorite studios - both when a project is going poorly, AND when it goes incredibly well. The crunch at the end of every project. Uprooting your family every few years to chase the next job. Colleagues who burn out and go to write dental software instead.</p>
         </div>
       </div>
       <div class="reveal" style="transition-delay:100ms">
         <div class="card hover accent-purple">
           <div class="pillar-ascii">[=]</div>
           <span class="badge badge-purple">The Model</span>
-          <p class="pillar-body">Backers pay $5/mo into a shared pool. Studios apply for funding. Selected teams receive stable multi-year support — no investors, no publishers, no compromise.</p>
+          <p class="pillar-body"
+> > Monthly Backers Fund the Pool
+</br>
+> Studios Apply for Funding
+</br>
+> These are reviewed by a developer-led board
+</br>
+> Selected Studios Receive Monthly Support
+</br>
+> Teams can decide the timelines that work for them.
+</br>
+> Backers Get Benefits
+</p>
         </div>
       </div>
       <div class="reveal" style="transition-delay:200ms">
         <div class="card hover accent-yellow">
           <div class="pillar-ascii">/!\</div>
           <span class="badge badge-yellow">The Difference</span>
-          <p class="pillar-body">We're not a crowdfunder. Not a publisher. We're a mutual aid system — built on transparency, worker-first ethics, and the belief that great games need safe conditions to exist.</p>
+          <p class="pillar-body">We're not a publisher, or a crowdfunder. We want to build a mutual aid system for indie developers - funded by people who are excited to try new things and find those hidden gem games.</p>
         </div>
       </div>
     </div>
@@ -1310,17 +1379,17 @@
       <div class="reveal" style="transition-delay:80ms">
         <div class="step-num">02</div>
         <h3 class="step-heading">Studios apply</h3>
-        <p class="step-body">Indie studios submit their game plan — creative direction, timeline, staffing, salaries. Reviewed by a developer-led board.</p>
+        <p class="step-body">Studios put together a plan for the creative direction and production of their game, including timelines, staffing, and salaries. They must also agree to the no-layoff / no-crunch pledge. These are reviewed by a developer-led board.</p>
       </div>
       <div class="reveal" style="transition-delay:160ms">
         <div class="step-num">03</div>
         <h3 class="step-heading">Selected teams get funded</h3>
-        <p class="step-body">Up to 24 months of stable monthly support. Studios commit to no crunch, no layoffs, and transparent progress reports.</p>
+        <p class="step-body">Studios that are selected can receive up to 24 months of funding. Studios need to maintain accountability with monthly progress reports.</p>
       </div>
       <div class="reveal" style="transition-delay:240ms">
         <div class="step-num">04</div>
         <h3 class="step-heading">Games ship when they're ready</h3>
-        <p class="step-body">No external deadlines. No forced early access. Teams decide their own timelines — and ship when the work is done.</p>
+        <p class="step-body">Teams can decide the timelines that work for them, without the pressure of external deadlines or early access releases (unless they want to!).</p>
       </div>
     </div>
   </div>
@@ -1338,7 +1407,7 @@
             <span class="tier-interval">/mo</span>
           </div>
           <p class="tier-subheading">One flat price. Full access. Everyone gets everything.</p>
-          <p class="tier-body">We deliberately chose not to build tiers. Paying more shouldn't buy you a better experience or more access. This is a collective — everyone's contribution matters equally.</p>
+          <p class="tier-body">We deliberately chose not to build tiers. Paying more shouldn't buy you a better experience or more access. Remember, this is a collective. Everyone's contribution matters equally.</p>
           <button class="btn btn-primary btn-lg" onclick="openModal('consumerModal')">Become a Backer</button>
         </div>
 
@@ -1350,8 +1419,9 @@
             <li class="perk-item"><span class="perk-icon">[+]</span> One free rotating game per month from our library</li>
             <li class="perk-item"><span class="perk-icon">[+]</span> Behind-the-scenes access: docs, playtests, process</li>
             <li class="perk-item"><span class="perk-icon">[+]</span> Early voice in how FPC selects and supports studios</li>
-            <li class="perk-item"><span class="perk-icon">[+]</span> Backer achievement system — earned, never bought</li>
+            <li class="perk-item"><span class="perk-icon">[+]</span> Backer achievement system</li>
             <li class="perk-item"><span class="perk-icon">[+]</span> Founding Backer credit in every game funded during your membership</li>
+            <li class="perk-item"><span class="perk-icon">[+]</span> More to come in this space!</li>
           </ul>
           <div class="tier-card-footer">
             <span class="badge badge-yellow">[*] Founding Backer badge while we're in early access</span>
@@ -1368,7 +1438,7 @@
     <div class="reveal">
       <div class="label">// studios on the platform</div>
       <h2 class="section-heading">Meet the builders.</h2>
-      <p class="section-sub">These are <strong style="color:var(--pink)">example studios</strong> — the kinds of projects FPC exists to support. Actual studio profiles will be built out at launch.</p>
+      <p class="section-sub">These are <strong style="color:var(--pink)">example studios</strong>, the kinds of projects FPC exists to support. Actual studio profiles will be built out at launch.</p>
     </div>
 
     <div class="studios-grid">
@@ -1452,8 +1522,8 @@
     </div>
 
     <div class="reveal studios-footnote">
-      <span class="ascii-div">\-- [ placeholder data — real studios coming ] --/</span>
-      <p>These studios are illustrative examples only. Real studio applications open at launch — if you're a developer, <button onclick="openModal('devModal')" style="background:none;border:none;color:var(--pink);font-family:var(--font-mono);font-size:inherit;cursor:pointer;text-decoration:underline;padding:0">register your interest now</button>.</p>
+      <span class="ascii-div">\-- [ placeholder data !! real studios coming ] --/</span>
+      <p>These studios are illustrative examples only. Real studio applications open at launch; if you're a developer, <button onclick="openModal('devModal')" style="background:none;border:none;color:var(--pink);font-family:var(--font-mono);font-size:inherit;cursor:pointer;text-decoration:underline;padding:0">register your interest now</button>.</p>
     </div>
   </div>
 </section>
@@ -1464,7 +1534,7 @@
     <div class="reveal">
       <div class="label">// radical transparency</div>
       <h2 class="section-heading">Open books. Always.</h2>
-      <p class="section-sub">You should know exactly where every dollar goes. This updates every month — no exceptions.</p>
+      <p class="section-sub">You should know exactly where every dollar goes. This updates every month, without exception.</p>
     </div>
 
     <div class="reveal" style="transition-delay:100ms">
@@ -1524,7 +1594,7 @@
 
         </div>
 
-        <p class="funding-note">All figures are approximate. Zero dollars currently go toward game backing — that is a future phase.</p>
+        <p class="funding-note">All figures are approximate. Zero dollars currently go toward game backing, that is a future phase.</p>
       </div>
     </div>
   </div>
@@ -1536,7 +1606,7 @@
     <div class="reveal">
       <div class="label">// backer rewards</div>
       <h2 class="section-heading">Backing has its perks.</h2>
-      <p class="section-sub">Stay consistent and your profile earns it. Achievements are earned, not bought — every backer starts equal.</p>
+      <p class="section-sub">Stay consistent and your profile earns it. Achievements are earned, and every backer starts equal.</p>
     </div>
 
     <div class="achieve-grid">
@@ -1607,7 +1677,7 @@
           We're building this in public.<br>
           <span class="join-accent">Come along for the ride.</span>
         </h2>
-        <p class="join-sub">We send occasional updates — funding milestones, studio spotlights, and honest progress reports. No spam, no noise.</p>
+        <p class="join-sub">The newsletter is intermittent at the moment, but about once a month we update with progress, studio highlights, team member info, and general updates.</p>
 
         <div class="newsletter-wrap">
           <iframe src="https://subscribe-forms.beehiiv.com/af7249a9-00f9-4d47-a207-2fb4bf2e6b4c" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width:100%;height:52px;margin:0;border-radius:12px;background-color:transparent;box-shadow:none;display:block;"></iframe>
@@ -1640,7 +1710,7 @@
     <div class="reveal payment-inner">
       <div class="label">// support fpc</div>
       <h2 class="section-heading">Back the collective.</h2>
-      <p class="section-sub" style="margin:0.75rem auto 0;text-align:center">FPC isn't live yet — but you can support it now. Every dollar goes directly to keeping the platform running while we build toward launch.</p>
+      <p class="section-sub" style="margin:0.75rem auto 0;text-align:center">Together, we can build a better games industry. One built on trust and respect while working towards transparency, mutual support, and true creative freedom: what we hold should be the standard, instead of the ideal.</p>
 
       <div class="payment-options">
 
@@ -1659,7 +1729,7 @@
             <li class="payment-perk"><span class="payment-perk-check">[+]</span> Hand-cast physical badge (1 of 500, ships spring 2026)</li>
             <li class="payment-perk"><span class="payment-perk-check">[+]</span> Founding Backer credit in every funded game</li>
             <li class="payment-perk"><span class="payment-perk-check">[+]</span> All backer benefits when the platform launches</li>
-            <li class="payment-perk"><span class="payment-perk-check">[+]</span> Cancel any time — no commitments</li>
+            <li class="payment-perk"><span class="payment-perk-check">[+]</span> Cancel any time with no ommitments</li>
           </ul>
           <div class="payment-btn-wrap">
             <!-- STRIPE: replace data-price-id with your Stripe recurring price ID -->
@@ -1670,6 +1740,12 @@
             >
               Back FPC — $5/mo
             </button>
+            <div style="text-align:center;margin-top:0.6rem">
+              <button
+                onclick="document.querySelector('.payment-card:not(.featured)').scrollIntoView({behavior:'smooth',block:'center'})"
+                style="background:none;border:none;font-family:var(--font-mono);font-size:0.7rem;color:var(--white-muted);cursor:pointer;letter-spacing:0.05em;padding:0"
+              >// or contribute once, any amount</button>
+            </div>
           </div>
         </div>
 
@@ -1705,6 +1781,25 @@
     </div>
   </div>
 </section>
+
+<!-- ════════ CONTRIBUTORS MODAL ════════ -->
+<div id="contributorsModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="contributorsModalTitle">
+  <div class="modal-dialog" style="max-width:480px">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="label" style="margin:0">/-- [ &lt;3&gt; ] --\</div>
+        <div class="modal-title" id="contributorsModalTitle">Made with help from good people.</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('contributorsModal')" aria-label="Close">[x]</button>
+    </div>
+    <div class="modal-body">
+      <p class="contrib-intro">FPC is a community effort. These folks showed up early and helped make it real — with ideas, time, feedback, or just being present in the room when it mattered.</p>
+      <ul class="contrib-list" id="contribList">
+        <li class="contrib-empty">// loading...</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 <!-- ════════ FOOTER ════════ -->
 <footer>
@@ -1770,7 +1865,7 @@
       <div class="modal-section">
         <div class="modal-section-label">// why fpc</div>
         <h3 class="modal-section-heading">A different kind of backing.</h3>
-        <p class="modal-section-sub">There are other ways to support games. Here's how FPC is different — and why that matters.</p>
+        <p class="modal-section-sub">There are other ways to support games. Here's how FPC is different, and why that matters.</p>
 
         <div class="compare-card card">
           <div class="compare-header">
@@ -1783,7 +1878,7 @@
           <div class="compare-row">
             <div><div class="compare-col-label">&gt;&gt; elsewhere</div><p class="compare-muted" style="font-size:0.85rem;line-height:1.55">You back one game at a time. It hits its goal or it doesn't. If it ships, great. If not, hope they had a refund policy.</p></div>
             <div class="compare-divider">//</div>
-            <div><div class="compare-col-label fpc">&gt;&gt; fpc</div><p style="font-size:0.85rem;line-height:1.55">FPC is a recurring pool. You're not betting on one game — you're funding a system that keeps multiple studios stable.</p></div>
+            <div><div class="compare-col-label fpc">&gt;&gt; fpc</div><p style="font-size:0.85rem;line-height:1.55">Together, backers are funding a fair, living wage for small studios and solo developers, not backing just an end project.</p></div>
           </div>
         </div>
 
@@ -1811,9 +1906,9 @@
             </div>
           </div>
           <div class="compare-row">
-            <div><div class="compare-col-label">&gt;&gt; elsewhere</div><p class="compare-muted" style="font-size:0.85rem;line-height:1.55">You buy games after they're done. Which means studios only get paid at the end — after the crunch, after the risk, after everything.</p></div>
+            <div><div class="compare-col-label">&gt;&gt; elsewhere</div><p class="compare-muted" style="font-size:0.85rem;line-height:1.55">You buy games after they're done. Which means studios only get paid at the end; after the crunch, after the risk, after everything.</p></div>
             <div class="compare-divider">//</div>
-            <div><div class="compare-col-label fpc">&gt;&gt; fpc</div><p style="font-size:0.85rem;line-height:1.55">You fund the conditions that make good games possible. Not the product. The people.</p></div>
+            <div><div class="compare-col-label fpc">&gt;&gt; fpc</div><p style="font-size:0.85rem;line-height:1.55">Funding is consistent and reliable over the entire development process - not all at once, at the end.</p></div>
           </div>
         </div>
       </div>
@@ -1828,7 +1923,7 @@
           <div class="card hover accent-pink">
             <div class="door-ascii" style="color:var(--pink)">[GAMER]</div>
             <h4 class="door-heading">You play games.</h4>
-            <p class="door-body">You've bought a game that disappointed you because it was rushed. You've seen a studio you liked disappear after a layoff. FPC is for you — $5 to make that less likely for the next generation of games.</p>
+            <p class="door-body">You've bought a game that disappointed you because it was rushed. You've seen a studio you liked disappear after a layoff. FPC is for you! $5 to make that less likely for the next generation of games.</p>
             <div class="door-tag">// you get it even if you didn't know it</div>
           </div>
           <div class="card hover accent-purple">
@@ -1877,7 +1972,7 @@
           <div class="card">
             <div class="benefit-icon">[B]</div>
             <div class="benefit-label">Behind-the-Scenes Access</div>
-            <p class="benefit-body">Design docs, playtests, process breakdowns. Not marketing — the real stuff.</p>
+            <p class="benefit-body">Design docs, playtests, process breakdowns. Not marketing and difficult to pivot from veritcal slices.</p>
           </div>
           <div class="card">
             <div class="benefit-icon">[V]</div>
@@ -1897,8 +1992,8 @@
       <!-- Achievement System -->
       <div class="modal-section">
         <div class="modal-section-label">// your backer journey</div>
-        <h3 class="modal-section-heading">Achievements are earned. Never bought.</h3>
-        <p class="modal-section-sub">Your profile grows with your relationship to FPC. Every badge here is a record of something real.</p>
+        <h3 class="modal-section-heading">Achievements you earn through thoughtful funding.</h3>
+        <p class="modal-section-sub">Your profile grows with your relationship to FPC. Every badge here is a record what you've helped others accomplish.</p>
 
         <!-- Day Zero callout -->
         <div class="day-zero-callout">
@@ -1911,10 +2006,10 @@
                 <span class="badge badge-yellow">[*] legendary</span>
                 <span class="badge badge-pink">physical badge</span>
               </div>
-              <p class="day-zero-desc">You pledged before FPC had anything to give you. No library. No funded games. No proof it would work. You just believed. This badge — digital and physical — is yours.</p>
+              <p class="day-zero-desc">You pledged before FPC had anything to give you. We didnt have a library. We didn't have funded games. We didn't even have proof it would work! You just believed. This physical badge is yours.</p>
               <div>
                 <span class="physical-tag">/-- [ PHYSICAL EDITION ] --\</span>
-                <p class="physical-note">Every Day Zero backer receives a hand-cast physical badge from the FPC founder. Limited to 500. Design finalized spring 2026 — ships when it's ready.</p>
+                <p class="physical-note">Every Day Zero backer receives a hand-cast physical badge from the FPC founder. Limited to 500. Design finalized spring 2026 (once we nail down that logo!).</p>
               </div>
             </div>
           </div>
@@ -1981,7 +2076,7 @@
           <div class="modal-section-label">// the honest question</div>
           <h3 class="five-heading">Would you fund a game you believe in for <span class="five-accent">$5 a month?</span></h3>
           <div class="five-divider">/----------------\</div>
-          <p class="five-body">Not to own it. Not for guaranteed early access. Just because you want it to exist — made by people who aren't being crushed by crunch, by a studio that won't disappear the moment a publisher pulls out.</p>
+          <p class="five-body">Not to own it. Not for guaranteed early access. Just because you want it to exist. Because it's made by people who aren't being crushed by crunch, by a studio that won't disappear the moment a publisher pulls out.</p>
           <p class="five-body">If that sounds right to you, we'd love to know. Take two minutes and fill out our interest survey below. Your answers directly shape how FPC grows.</p>
         </div>
       </div>
@@ -1995,7 +2090,7 @@
           <div>
             <h3 class="pledge-heading">Pledge before we have <span class="pledge-accent">anything to give you.</span></h3>
             <p class="pledge-body">FPC isn't live yet. There are no funded games. No library. No finished product to point at. Just a model we believe in and people working hard to make it real.</p>
-            <p class="pledge-body">If you pledge now — a one-time contribution or a $5/mo subscription through our existing Stripe — you become a Day Zero backer. That earns you the digital badge on your future FPC profile, and one of 500 hand-cast physical badges made by the FPC founder.</p>
+            <p class="pledge-body">If you pledge now with a one-time contribution or a $5/mo subscription through our existing Stripe, you become a Day Zero backer. That earns you the digital badge on your future FPC profile, and one of 500 hand-cast physical badges made by the FPC founder.</p>
             <p class="pledge-caveat">/-- The physical badge design is being finalized with our brand artist in spring 2026. Yours ships when it's done. We'll keep you posted. --\</p>
             <div class="pledge-ctas">
               <a href="#payment" onclick="closeModal('consumerModal');setTimeout(()=>document.getElementById('payment').scrollIntoView({behavior:'smooth'}),150);return false;" class="btn btn-primary btn-lg">Pledge Now — $5/mo</a>
@@ -2010,13 +2105,13 @@
               <div class="pledge-badge-glow" aria-hidden="true"></div>
             </div>
             <div class="pledge-counter">
-              <span class="pledge-counter-num">498</span>
+              <span class="pledge-counter-num">497</span>
               <span class="pledge-counter-of">of 500 remaining</span>
             </div>
             <div class="pledge-bar">
               <div class="pledge-bar-fill" style="width:1%"></div>
             </div>
-            <div class="pledge-bar-label">[ not yet claimed — be the first ]</div>https://fairplaycollective.org/
+            <div class="pledge-bar-label">[ THREE CLAIMED! Be one of the first ]</div>https://fairplaycollective.org/
             <div class="pledge-includes-label">// includes</div>
             <ul class="pledge-list">
               <li><span class="pledge-check">[+]</span> Day Zero digital badge on your profile</li>
@@ -2033,8 +2128,8 @@
       <!-- Consumer Survey -->
       <div class="modal-section" id="consumerSurveySection">
         <div class="modal-section-label">// interest survey</div>
-        <h3 class="modal-section-heading">Two minutes. Real impact.</h3>
-        <p class="modal-section-sub">We haven't done a lot of consumer research yet. These answers directly inform how FPC grows. Fill it out and earn the Scout achievement.</p>
+        <h3 class="modal-section-heading">Two minutes for you means real impact for us</h3>
+        <p class="modal-section-sub">These answers directly inform how FPC grows. Fill it out and earn the Scout achievement.</p>
 
         <div id="consumerSurveyContainer"></div>
       </div>
@@ -2078,7 +2173,7 @@
           <div class="card">
             <div class="dev-offer-icon">[=]</div>
             <div class="dev-offer-heading">Creative Freedom</div>
-            <p class="dev-offer-body">You decide the game. The timeline. The team. FPC asks for transparency and ethical working conditions — not creative control.</p>
+            <p class="dev-offer-body">You decide the game. The timeline. The team. FPC asks for transparency and ethical working conditions with ZERO creative control.</p>
           </div>
           <div class="card">
             <div class="dev-offer-icon">[>>]</div>
@@ -2088,12 +2183,12 @@
           <div class="card">
             <div class="dev-offer-icon">[?]</div>
             <div class="dev-offer-heading">Feedback &amp; Community</div>
-            <p class="dev-offer-body">Backers can engage with your work in progress. Not as unpaid testers — as invested partners who want the thing to exist.</p>
+            <p class="dev-offer-body">Backers can engage with your work in progress. Not as unpaid testers, but as invested partners who want the thing to exist.</p>
           </div>
           <div class="card">
             <div class="dev-offer-icon">[^]</div>
             <div class="dev-offer-heading">Discoverability</div>
-            <p class="dev-offer-body">A profile page on FPC gives you visibility to everyone in the collective. Future phases include social features and dev spotlights.</p>
+            <p class="dev-offer-body">A profile page on FPC gives you visibility to everyone in the collective. Future phases include social features and dev spotlights with potential tags for project status and publisher discoverability</p>
           </div>
         </div>
       </div>
@@ -2118,14 +2213,14 @@
             <span class="dev-exp-icon">[x]</span>
             <div>
               <div class="dev-exp-label">No layoffs during funded period</div>
-              <div class="dev-exp-body">The team you start with gets to finish. If the project scope changes significantly, it requires board review — not a quiet headcount reduction.</div>
+              <div class="dev-exp-body">The team you start with gets to finish. If the project scope changes significantly, it requires board review and not a quiet headcount reduction.</div>
             </div>
           </div>
           <div class="dev-exp-row">
             <span class="dev-exp-icon">[x]</span>
             <div>
               <div class="dev-exp-label">Monthly progress reports</div>
-              <div class="dev-exp-body">Brief, honest updates shared with backers. Not marketing. Actual status — what got done, what's hard, what's next.</div>
+              <div class="dev-exp-body">Brief, honest updates shared with backers. Not marketing. Actual status: what got done, what's hard, what's next.</div>
             </div>
           </div>
           <div class="dev-exp-row">
@@ -2151,7 +2246,7 @@
       <div class="modal-section">
         <div class="modal-section-label">// how to apply (eventually)</div>
         <h3 class="modal-section-heading">We're not accepting applications yet.</h3>
-        <p class="modal-section-sub">FPC is pre-launch. What we're doing right now is gathering interest and understanding who's out there. If you're a developer who thinks this model sounds right for your studio, we want to hear from you — even before the application process is open.</p>
+        <p class="modal-section-sub">FPC is pre-launch. What we're doing right now is gathering interest and understanding who's out there. If you're a developer who thinks this model sounds right for your studio, we want to hear from you even before the application process is open.</p>
         <div class="card" style="border-color:rgba(89,41,166,0.3);background:var(--purple-dim)">
           <div class="label" style="color:#9B78E8;margin-bottom:0.25rem">// the current phase</div>
           <p style="font-size:0.9rem;line-height:1.6">Right now, we're building the platform, growing our backer base, and shaping the formal application process. Your survey responses directly influence that process. Studios that register interest now will be first in line when applications open.</p>
