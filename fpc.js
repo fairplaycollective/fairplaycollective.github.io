@@ -348,13 +348,6 @@ function loadContributors() {
     });
 }
 
-// Load contributors when the modal opens
-var origOpenModal = openModal;
-openModal = function(id) {
-  origOpenModal(id);
-  if (id === 'contributorsModal') loadContributors();
-};
-
 // ── Init ──────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function() {
   buildSurvey(consumerQuestions, 'consumerSurveyContainer', 'consumer');
